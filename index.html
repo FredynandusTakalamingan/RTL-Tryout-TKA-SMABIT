@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Analisis Hasil Try Out 1 TKA - SMAN 2 Bitung</title>
+    
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library & Chart.js -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root[data-theme="dark"] {
+            --bg-base: #0b0f19;
+            --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #111827 50%, #1e1035 100%);
+            --panel-bg: rgba(255, 255, 255, 0.04);
+            --panel-border: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #38bdf8;
+            --primary-purple: #a855f7;
+            --accent-green: #34d399;
+            --accent-yellow: #fbbf24;
+            --accent-rose: #f43f5e;
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            --sidebar-bg: rgba(15, 23, 42, 0.9);
+        }
+
+        :root[data-theme="light"] {
+            --bg-base: #f1f5f9;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #e0e7ff 100%);
+            --panel-bg: rgba(255, 255, 255, 0.7);
+            --panel-border: rgba(255, 255, 255, 0.8);
+            --card-bg: rgba(255, 255, 255, 0.6);
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary: #0284c7;
+            --primary-purple: #7e22ce;
+            --accent-green: #059669;
+            --accent-yellow: #d97706;
+            --accent-rose: #e11d48;
+            --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.08);
+            --sidebar-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Canvas Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--panel-border);
+            box-shadow: var(--shadow);
+            border-radius: 20px;
+        }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--panel-border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* LANDING PAGE SECTION */
+        #landing-page {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px;
+        }
+
+        .landing-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .school-logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .school-logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-purple));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        .theme-toggle-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--panel-border);
+            color: var(--accent-yellow);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1300px;
+            margin: auto 0;
+            width: 100%;
+            align-self: center;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary) 50%, var(--primary-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+
+        .author-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 30px;
+            margin-bottom: 30px;
+        }
+
+        .author-badge i {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .hero-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card-landing {
+            text-align: center;
+            padding: 15px;
+        }
+
+        .stat-number {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .btn-enter {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 36px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-purple) 100%);
+            border: none;
+            border-radius: 40px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-enter:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(168, 85, 247, 0.45);
+        }
+
+        .hero-svg-illustration {
+            width: 100%;
+            max-width: 450px;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.3));
+        }
+
+        /* DASHBOARD PAGE SECTION */
+        #dashboard-page {
+            display: none;
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+        }
+
+        .dashboard-wrapper {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Nav */
+        .sidebar {
+            width: 280px;
+            background: var(--sidebar-bg);
+            backdrop-filter: blur(20px);
+            border-right: 1px solid var(--panel-border);
+            display: flex;
+            flex-direction: column;
+            transition: width 0.3s ease;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        .sidebar.collapsed {
+            width: 80px;
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--panel-border);
+        }
+
+        .sidebar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .sidebar.collapsed .sidebar-brand span,
+        .sidebar.collapsed .menu-title {
+            display: none;
+        }
+
+        .toggle-sidebar-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .sidebar-search {
+            padding: 15px 20px;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 10px;
+            padding: 8px 12px;
+            gap: 10px;
+        }
+
+        .search-box input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--text-main);
+            width: 100%;
+            font-size: 0.85rem;
+        }
+
+        .sidebar.collapsed .sidebar-search {
+            display: none;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 10px;
+            overflow-y: auto;
+            flex-grow: 1;
+        }
+
+        .menu-item {
+            padding: 12px 15px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text-muted);
+            cursor: pointer;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            font-size: 0.88rem;
+        }
+
+        .menu-item:hover, .menu-item.active {
+            background: linear-gradient(90deg, rgba(56, 189, 248, 0.15), rgba(168, 85, 247, 0.15));
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .menu-item i {
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            flex-grow: 1;
+            padding: 30px;
+            transition: margin-left 0.3s ease;
+            width: calc(100% - 280px);
+        }
+
+        .main-content.expanded {
+            margin-left: 80px;
+            width: calc(100% - 80px);
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .home-icon-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--panel-border);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Content Views */
+        .content-section {
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Grid & Table Utilities */
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--panel-border);
+            font-size: 0.88rem;
+        }
+
+        th {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-success { background: rgba(52, 211, 153, 0.2); color: var(--accent-green); }
+        .badge-warning { background: rgba(251, 191, 36, 0.2); color: var(--accent-yellow); }
+        .badge-danger { background: rgba(244, 63, 94, 0.2); color: var(--accent-rose); }
+
+        .section-title-box {
+            border-left: 4px solid var(--primary);
+            padding-left: 12px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--primary);
+            margin-top: 15px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 15px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-purple);
+            border: 2px solid var(--bg-base);
+        }
+
+        .info-list {
+            padding-left: 20px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .info-list li {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-svg-illustration { margin: 0 auto; max-width: 320px; }
+            .sidebar { width: 80px; }
+            .sidebar .sidebar-brand span, .sidebar .menu-title, .sidebar .sidebar-search { display: none; }
+            .main-content { margin-left: 80px; width: calc(100% - 80px); }
+        }
+
+        @media (max-width: 576px) {
+            .hero-title { font-size: 2rem; }
+            .main-content { padding: 15px; }
+            .topbar { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Canvas Particle Background -->
+    <canvas id="particles-js"></canvas>
+
+    <!-- ================= 1. HALAMAN PERTAMA: LANDING PAGE ================= -->
+    <section id="landing-page">
+        <div class="landing-header">
+            <div class="school-logo-wrapper">
+                <div class="school-logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h3 style="font-size: 1.1rem; font-weight: 700;">SMA Negeri 2 Bitung</h3>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Dashboard Analisis Akademik</p>
+                </div>
+            </div>
+            <button class="theme-toggle-btn" onclick="toggleTheme()" title="Ubah Mode Terang/Gelap">
+                <i class="fas fa-moon" id="theme-icon-landing"></i>
+            </button>
+        </div>
+
+        <div class="hero-container">
+            <div data-aos="fade-right" data-aos-duration="1000">
+                <h1 class="hero-title">Analisis Hasil Try Out<br>Tes Kemampuan Akademik (TKA)</h1>
+                <p class="hero-subtitle">Dashboard Interaktif Analisis dan Rencana Tindak Lanjut Terstruktur Periode Agustus – Oktober</p>
+                
+                <div class="author-badge">
+                    <i class="fas fa-user-shield"></i>
+                    <div>
+                        <div style="font-size: 0.9rem; font-weight: 700; color: var(--text-main);">Fredynandus Takalamingan, S.Si</div>
+                        <div style="font-size: 0.75rem; color: var(--text-muted);">Wakil Kepala Sekolah Bidang Kurikulum</div>
+                    </div>
+                </div>
+
+                <!-- Statistik Singkat Card -->
+                <div class="hero-stats-grid">
+                    <div class="glass-card stat-card-landing">
+                        <div class="stat-number counter" data-target="492">0</div>
+                        <div class="stat-label">Jumlah Siswa</div>
+                    </div>
+                    <div class="glass-card stat-card-landing">
+                        <div class="stat-number counter" data-target="3">0</div>
+                        <div class="stat-label">Mata Pelajaran</div>
+                    </div>
+                    <div class="glass-card stat-card-landing">
+                        <div class="stat-number" style="color: var(--accent-green);"><span class="counter" data-target="90.5">0</span>%</div>
+                        <div class="stat-label">Rata-rata Ikut</div>
+                    </div>
+                    <div class="glass-card stat-card-landing">
+                        <div class="stat-number" style="color: var(--primary-purple);">Agst-Okt</div>
+                        <div class="stat-label">Target RTL</div>
+                    </div>
+                </div>
+
+                <button class="btn-enter" onclick="enterDashboard()">
+                    <span>Masuk ke Dashboard</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+
+            <!-- SVG Illustration -->
+            <div data-aos="fade-left" data-aos-duration="1000" style="text-align: center;">
+                <svg class="hero-svg-illustration" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="50" y="80" width="400" height="260" rx="20" fill="url(#paint0_linear)" stroke="var(--panel-border)" stroke-width="2"/>
+                    <path d="M100 280 L180 200 L260 230 L340 140 L400 170" stroke="var(--primary)" stroke-width="4" stroke-linecap="round"/>
+                    <circle cx="100" cy="280" r="6" fill="var(--primary)"/>
+                    <circle cx="180" cy="200" r="6" fill="var(--primary)"/>
+                    <circle cx="260" cy="230" r="6" fill="var(--primary)"/>
+                    <circle cx="340" cy="140" r="6" fill="var(--primary-purple)"/>
+                    <circle cx="400" cy="170" r="6" fill="var(--accent-green)"/>
+                    <rect x="90" y="120" width="60" height="80" rx="8" fill="rgba(56, 189, 248, 0.2)"/>
+                    <rect x="170" y="100" width="60" height="100" rx="8" fill="rgba(168, 85, 247, 0.2)"/>
+                    <rect x="250" y="140" width="60" height="60" rx="8" fill="rgba(52, 211, 153, 0.2)"/>
+                    <defs>
+                        <linearGradient id="paint0_linear" x1="50" y1="80" x2="450" y2="340" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#ffffff" stop-opacity="0.05"/>
+                            <stop offset="1" stop-color="#1e1035" stop-opacity="0.3"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+
+        <div style="text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 20px;">
+            &copy; SMAN 2 Bitung | Sistem Informasi Analisis Hasil Try Out TKA
+        </div>
+    </section>
+
+    <!-- ================= 2. HALAMAN DASHBOARD UTAMA ================= -->
+    <section id="dashboard-page">
+        <div class="dashboard-wrapper">
+            
+            <!-- Sidebar Navigation -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <div class="sidebar-brand">
+                        <i class="fas fa-chart-line"></i>
+                        <span>TKA SMAN 2</span>
+                    </div>
+                    <button class="toggle-sidebar-btn" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+
+                <div class="sidebar-search">
+                    <div class="search-box">
+                        <i class="fas fa-search" style="color: var(--text-muted);"></i>
+                        <input type="text" id="menuSearch" placeholder="Cari menu..." onkeyup="filterMenu()">
+                    </div>
+                </div>
+
+                <ul class="sidebar-menu" id="menuList">
+                    <li class="menu-item active" onclick="nav('beranda')"><i class="fas fa-home"></i><span class="menu-title">Beranda</span></li>
+                    <li class="menu-item" onclick="nav('pengantar')"><i class="fas fa-book-open"></i><span class="menu-title">Pengantar</span></li>
+                    <li class="menu-item" onclick="nav('tujuan')"><i class="fas fa-bullseye"></i><span class="menu-title">Tujuan</span></li>
+                    <li class="menu-item" onclick="nav('ringkasan')"><i class="fas fa-chart-pie"></i><span class="menu-title">Ringkasan Hasil</span></li>
+                    <li class="menu-item" onclick="nav('matematika')"><i class="fas fa-calculator"></i><span class="menu-title">Analisis Matematika</span></li>
+                    <li class="menu-item" onclick="nav('indonesia')"><i class="fas fa-language"></i><span class="menu-title">Bahasa Indonesia</span></li>
+                    <li class="menu-item" onclick="nav('inggris')"><i class="fas fa-globe"></i><span class="menu-title">Bahasa Inggris</span></li>
+                    <li class="menu-item" onclick="nav('perbandingan')"><i class="fas fa-balance-scale"></i><span class="menu-title">Perbandingan Mapel</span></li>
+                    <li class="menu-item" onclick="nav('timeline')"><i class="fas fa-calendar-alt"></i><span class="menu-title">Timeline RTL</span></li>
+                    <li class="menu-item" onclick="nav('kesimpulan')"><i class="fas fa-check-circle"></i><span class="menu-title">Kesimpulan</span></li>
+                    <li class="menu-item" onclick="nav('penyusun')"><i class="fas fa-user-tie"></i><span class="menu-title">Tentang Penyusun</span></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="main-content" id="mainContent">
+                
+                <!-- Topbar Actions -->
+                <div class="topbar glass-panel" style="padding: 12px 20px; border-radius: 15px;">
+                    <div class="breadcrumb">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Dashboard</span>
+                        <span>/</span>
+                        <span id="breadcrumb-title" style="color: var(--primary); font-weight: 600;">Beranda</span>
+                    </div>
+
+                    <div class="topbar-actions">
+                        <button class="home-icon-btn" onclick="exitToLanding()">
+                            <i class="fas fa-home"></i> <span>Home</span>
+                        </button>
+                        <button class="theme-toggle-btn" style="width:35px; height:35px; font-size:0.9rem;" onclick="toggleTheme()">
+                            <i class="fas fa-moon" id="theme-icon-dashboard"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CONTENT SECTIONS -->
+
+                <!-- 1. BERANDA -->
+                <div id="sec-beranda" class="content-section active">
+                    <div class="glass-card">
+                        <h2>Dashboard Analisis Hasil Try Out 1 TKA</h2>
+                        <p style="color: var(--text-muted); margin-top: 5px;">SMA Negeri 2 Bitung - Evaluasi Lengkap & Rencana Action Plan Sekolah Periode Agustus – Oktober</p>
+                    </div>
+
+                    <div class="grid-4">
+                        <div class="glass-card" style="border-left: 4px solid var(--primary);">
+                            <div style="font-size:0.8rem; color:var(--text-muted);">Total Siswa Terdaftar</div>
+                            <div style="font-size:1.8rem; font-weight:700;">492</div>
+                        </div>
+                        <div class="glass-card" style="border-left: 4px solid var(--accent-yellow);">
+                            <div style="font-size:0.8rem; color:var(--text-muted);">Matematika</div>
+                            <div style="font-size:1.8rem; font-weight:700; color:var(--accent-yellow);">50.30</div>
+                            <div style="font-size:0.75rem; color:var(--text-muted);">88.21% Keikutsertaan</div>
+                        </div>
+                        <div class="glass-card" style="border-left: 4px solid var(--accent-green);">
+                            <div style="font-size:0.8rem; color:var(--text-muted);">Bahasa Indonesia</div>
+                            <div style="font-size:1.8rem; font-weight:700; color:var(--accent-green);">61.26</div>
+                            <div style="font-size:0.75rem; color:var(--text-muted);">91.87% Keikutsertaan</div>
+                        </div>
+                        <div class="glass-card" style="border-left: 4px solid var(--primary-purple);">
+                            <div style="font-size:0.8rem; color:var(--text-muted);">Bahasa Inggris</div>
+                            <div style="font-size:1.8rem; font-weight:700; color:var(--primary-purple);">65.33</div>
+                            <div style="font-size:0.75rem; color:var(--text-muted);">91.67% Keikutsertaan</div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="glass-card">
+                            <h3>Rata-Rata Nilai Per Mata Pelajaran</h3>
+                            <canvas id="chartBeranda" style="max-height: 250px; margin-top: 15px;"></canvas>
+                        </div>
+                        <div class="glass-card">
+                            <h3>Fokus Utama Intervensi Sekolah</h3>
+                            <ul class="info-list">
+                                <li><strong>Matematika:</strong> Penguatan fondasi Aljabar (42.80) & Bilangan (45.97) melalui remedial matrikulasi.</li>
+                                <li><strong>Bahasa Indonesia:</strong> Peningkatan penalaran HOTS pada domain Evaluasi & Apresiasi (52.58).</li>
+                                <li><strong>Bahasa Inggris:</strong> Pembiasaan Academic Vocabulary Booster & pemahaman teks inferensial.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. PENGANTAR -->
+                <div id="sec-pengantar" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-book-open" style="color: var(--primary);"></i> Pengantar RTL TKA</h2>
+                        <p style="margin-top: 15px; line-height: 1.6;">Dokumen Rencana Tindak Lanjut (RTL) ini dirancang sebagai panduan komprehensif untuk merespons hasil <strong>Try Out 1 Tes Kemampuan Akademik (TKA)</strong> di SMA Negeri 2 Bitung.</p>
+                        <p style="margin-top: 10px; line-height: 1.6;">Melalui evaluasi mendalam pada mata pelajaran Matematika, Bahasa Indonesia, dan Bahasa Inggris, RTL ini memetakan keikutsertaan siswa, pencapaian kompetensi, serta langkah-langkah intervensi terstruktur periode <strong>Agustus hingga Oktober</strong> guna memastikan kelulusan serta pencapaian hasil TKA yang optimal.</p>
+                    </div>
+                </div>
+
+                <!-- 3. TUJUAN -->
+                <div id="sec-tujuan" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-bullseye" style="color: var(--accent-rose);"></i> Tujuan Strategis Action Plan</h2>
+                        <div class="grid-3" style="margin-top: 20px;">
+                            <div class="glass-card">
+                                <i class="fas fa-users" style="font-size: 2rem; color: var(--primary);"></i>
+                                <h4 style="margin-top: 10px;">Partisipasi 100% Siswa</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Memfasilitasi try out susulan bagi seluruh siswa yang belum berpartisipasi agar profil peta kemampuan terdata secara lengkap.</p>
+                            </div>
+                            <div class="glass-card">
+                                <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--accent-green);"></i>
+                                <h4 style="margin-top: 10px;">Peningkatan Kompetensi</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Mendorong pergeseran kelompok nilai siswa dari kategori "Cukup" dan "Rendah" menuju kategori "Sedang" dan "Baik".</p>
+                            </div>
+                            <div class="glass-card">
+                                <i class="fas fa-tasks" style="font-size: 2rem; color: var(--primary-purple);"></i>
+                                <h4 style="margin-top: 10px;">Intervensi Terfokus</h4>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 5px;">Menerapkan remedial matrikulasi, tutor sebaya, bimbingan belajar intensif, dan gerakan literasi HOTS harian.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. RINGKASAN HASIL -->
+                <div id="sec-ringkasan" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-chart-pie" style="color: var(--primary-purple);"></i> Ringkasan Hasil Try Out 1 TKA</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mata Pelajaran</th>
+                                    <th>Siswa Terdaftar</th>
+                                    <th>Siswa Ikut</th>
+                                    <th>Belum Ikut</th>
+                                    <th>% Keikutsertaan</th>
+                                    <th>Rata-rata Sekolah</th>
+                                    <th>Kategori Capaian</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Matematika</strong></td>
+                                    <td>492</td>
+                                    <td>434</td>
+                                    <td>58 (11.79%)</td>
+                                    <td>88.21%</td>
+                                    <td>50.30</td>
+                                    <td><span class="badge badge-warning">Sedang</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bahasa Indonesia</strong></td>
+                                    <td>492</td>
+                                    <td>452</td>
+                                    <td>40 (8.13%)</td>
+                                    <td>91.87%</td>
+                                    <td>61.26</td>
+                                    <td><span class="badge badge-success">Cukup Baik</span></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bahasa Inggris</strong></td>
+                                    <td>492</td>
+                                    <td>451</td>
+                                    <td>41 (8.33%)</td>
+                                    <td>91.67%</td>
+                                    <td>65.33</td>
+                                    <td><span class="badge badge-success">Sedang / Cukup Baik</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 5. ANALISIS MATEMATIKA -->
+                <div id="sec-matematika" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-calculator" style="color: var(--primary);"></i> Analisis Hasil Try Out 1 TKA: Matematika</h2>
+                        
+                        <div class="section-title-box">
+                            <h4>A. Tingkat Partisipasi</h4>
+                        </div>
+                        <p style="font-size:0.9rem;">• Siswa Terdaftar: 492 siswa | Siswa Ikut: 434 siswa | Persentase: 88.21%</p>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:5px;">
+                            <strong>Evaluasi:</strong> Partisipasi sudah cukup baik, tetapi masih ada 58 siswa (11.79%) yang belum/tidak mengikuti Try Out. Hal ini perlu dimitigasi agar seluruh siswa siap menghadapi TKA.
+                        </p>
+
+                        <div class="section-title-box">
+                            <h4>B. Capaian Rata-Rata Nilai & Peta Kompetensi (Rata-rata Sekolah: 50.3)</h4>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Competency / Domain</th>
+                                    <th>Nilai Rata-rata</th>
+                                    <th>Keterangan</th>
+                                    <th>Sebaran Siswa (Baik / Sedang / Cukup / Rendah)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Trigonometri</td><td>60.14</td><td><span class="badge badge-success">Sedang</span></td><td>245 / 66 / 71 / 52</td></tr>
+                                <tr><td>Data & Peluang</td><td>51.56</td><td><span class="badge badge-success">Sedang</span></td><td>209 / 99 / 69 / 57</td></tr>
+                                <tr><td>Geometri</td><td>51.09</td><td><span class="badge badge-success">Sedang</span></td><td>151 / 146 / 89 / 48</td></tr>
+                                <tr><td>Bilangan</td><td>45.97</td><td><span class="badge badge-warning">Cukup</span></td><td>151 / 129 / 85 / 69</td></tr>
+                                <tr><td>Aljabar</td><td>42.80</td><td><span class="badge badge-danger">Cukup</span></td><td>116 / 125 / 129 / 64</td></tr>
+                            </tbody>
+                        </table>
+
+                        <div class="section-title-box">
+                            <h4>Temuan Utama:</h4>
+                        </div>
+                        <ul class="info-list">
+                            <li><strong>Titik Lemah Utama (Aljabar & Bilangan):</strong> Kedua materi ini memiliki rata-rata terendah (42.80 & 45.97) dan berstatus "Cukup". Padahal, Aljabar dan Bilangan adalah fondasi dasar dalam matematika.</li>
+                            <li><strong>Potensi Terbesar (Trigonometri & Data/Peluang):</strong> Trigonometri mencatatkan nilai tertinggi (60.14) dengan 245 siswa berada di kategori "Baik".</li>
+                            <li><strong>Keterbelahan Kategori Siswa:</strong> Terdapat sekitar 115 – 154 siswa di setiap materi yang berada pada kelompok nilai Cukup & Rendah (butuh perhatian ekstra).</li>
+                        </ul>
+
+                        <div class="section-title-box">
+                            <h4>2. Rencana Action Plan Sekolah (Agustus – Oktober)</h4>
+                        </div>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:10px;">
+                            Skala Prioritas: <strong>Prioritas Utama:</strong> Aljabar & Bilangan | <strong>Prioritas Menengah:</strong> Data & Peluang, Trigonometri, Geometri
+                        </p>
+
+                        <div class="glass-card" style="background: rgba(255,255,255,0.02);">
+                            <h5 style="color:var(--primary);">Langkah 1: Tindakan Administrasi & Sosialisasi (Minggu I Agustus)</h5>
+                            <ul class="info-list">
+                                <li><strong>Keikutsertaan 100%:</strong> Memanggil dan memfasilitasi Try Out Susulan bagi 58 siswa yang belum ikut.</li>
+                                <li><strong>Pengelompokan Siswa (Clustering):</strong>
+                                    <br>- <em>Kelompok Klinik/Remidial:</em> Siswa kategori "Rendah" dan "Cukup" (fokus Aljabar & Bilangan).
+                                    <br>- <em>Kelompok Pengayaan/Penguatan:</em> Siswa kategori "Sedang" dan "Baik" (fokus HOTS & manajemen waktu).
+                                </li>
+                            </ul>
+
+                            <h5 style="color:var(--primary); margin-top:15px;">Langkah 2: Strategi Pembelajaran & Pengajaran di Kelas (Agustus – September)</h5>
+                            <ul class="info-list">
+                                <li><strong>A. Intervensi Utama (Aljabar & Bilangan):</strong> Remedial Matrikulasi (2 Minggu Pertama) 15–30 menit di awal KBM matematika khusus mengulang paktorisasi, persamaan, fungsi, eksponen, bentuk akar, & pola bilangan. Disusun pula Modul Lembar Kerja Terfokus.</li>
+                                <li><strong>B. Intervensi Menengah (Data, Peluang, Geometri, Trigonometri):</strong> Metode Drill & Pembahasan Soal TKA serta Tutor Sebaya (Peer Tutoring) memanfaatkan 245 siswa berprestasi Baik di Trigonometri.</li>
+                            </ul>
+
+                            <h5 style="color:var(--primary); margin-top:15px;">Langkah 3: Program Penguatan Tambahan (September – Oktober)</h5>
+                            <ul class="info-list">
+                                <li><strong>Bimbel Intensif Sore:</strong> Diselenggarakan 2x seminggu setelah jam sekolah.</li>
+                                <li><strong>Try Out Berkala:</strong> Akhir Agustus (Evaluasi Aljabar/Bilangan) & Akhir September (Simulasi TKA).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. ANALISIS BAHASA INDONESIA -->
+                <div id="sec-indonesia" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-language" style="color: var(--accent-green);"></i> Analisis Hasil Try Out 1 TKA: Bahasa Indonesia</h2>
+                        
+                        <div class="section-title-box">
+                            <h4>A. Tingkat Partisipasi</h4>
+                        </div>
+                        <p style="font-size:0.9rem;">• Siswa Terdaftar: 492 siswa | Siswa Ikut: 452 siswa | Persentase: 91.87%</p>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:5px;">
+                            <strong>Evaluasi:</strong> Partisipasi lebih tinggi dibanding Matematika (88.21%). Namun, masih ada 40 siswa (8.13%) yang belum mengikuti tes.
+                        </p>
+
+                        <div class="section-title-box">
+                            <h4>B. Capaian Rata-Rata Nilai & Peta Kompetensi (Rata-rata Sekolah: 61.26 - Cukup Baik)</h4>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Competency / Domain</th>
+                                    <th>Nilai Rata-rata</th>
+                                    <th>Keterangan</th>
+                                    <th>Sebaran Siswa (Baik / Sedang / Cukup / Rendah)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Pemahaman Tekstual</td><td>83.41</td><td><span class="badge badge-success">Baik</span></td><td>329 / 82 / 31 / 10</td></tr>
+                                <tr><td>Pemahaman Inferensial</td><td>57.55</td><td><span class="badge badge-warning">Sedang</span></td><td>148 / 159 / 95 / 50</td></tr>
+                                <tr><td>Evaluasi dan Apresiasi</td><td>52.58</td><td><span class="badge badge-warning">Sedang</span></td><td>34 / 255 / 104 / 59</td></tr>
+                            </tbody>
+                        </table>
+
+                        <div class="section-title-box">
+                            <h4>Temuan Utama:</h4>
+                        </div>
+                        <ul class="info-list">
+                            <li><strong>Sangat Kuat di Pemahaman Tekstual:</strong> Mayoritas siswa (329 siswa / 72.8%) berada di kategori Baik (mahir menemukan informasi tersurat & fakta).</li>
+                            <li><strong>Lemah di Berpikir Tingkat Tinggi (HOTS):</strong>
+                                <br>- <em>Pemahaman Inferensial (57.55):</em> 145 siswa di kategori Cukup & Rendah (kesulitan membaca informasi tersirat/kesimpulan).
+                                <br>- <em>Evaluasi dan Apresiasi (52.58):</em> Hanya 34 siswa bernilai "Baik". 255 siswa menumpuk di "Sedang" (butuh penguatan menilai akurasi, bias argumen, & refleksi nilai).
+                            </li>
+                        </ul>
+
+                        <div class="section-title-box">
+                            <h4>2. Rencana Action Plan Sekolah (Agustus – Oktober)</h4>
+                        </div>
+
+                        <div class="glass-card" style="background: rgba(255,255,255,0.02);">
+                            <h5 style="color:var(--accent-green);">Langkah 1: Tindakan Administrasi (Minggu I Agustus)</h5>
+                            <ul class="info-list">
+                                <li>Pendataan 40 siswa susulan & memetakan target intervensi khusus untuk 109 siswa bernilai Cukup/Rendah di domain HOTS.</li>
+                            </ul>
+
+                            <h5 style="color:var(--accent-green); margin-top:15px;">Langkah 2: Strategi Pembelajaran di Kelas (Agustus – September)</h5>
+                            <ul class="info-list">
+                                <li><strong>A. Pemahaman Tekstual:</strong> Melatih skimming/scanning untuk menghemat waktu.</li>
+                                <li><strong>B. Pemahaman Inferensial:</strong> Latihan soal kesimpulan/implikasi tersirat & teknik Annotating Text (kata kunci hubungan logis).</li>
+                                <li><strong>C. Evaluasi & Apresiasi:</strong> Pelatihan menganalisis argumen teks (Fakta vs Opini, pandangan penulis, bias argumen) dan bedah soal model TKA.</li>
+                            </ul>
+
+                            <h5 style="color:var(--accent-green); margin-top:15px;">Langkah 3: Program Penguatan Tambahan (September – Oktober)</h5>
+                            <ul class="info-list">
+                                <li><strong>Gerakan Literasi HOTS Harian:</strong> 1 artikel berita/opini pendek sebelum KBM + 2 pertanyaan evaluatif (5 menit).</li>
+                                <li><strong>Try Out 2 & Simulasi TKA:</strong> Target mengangkat nilai Evaluasi & Apresiasi dari 52.58 ke > 65.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. ANALISIS BAHASA INGGRIS -->
+                <div id="sec-inggris" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-globe" style="color: var(--primary-purple);"></i> Analisis Hasil Try Out 1 TKA: Bahasa Inggris</h2>
+                        
+                        <div class="section-title-box">
+                            <h4>A. Tingkat Partisipasi</h4>
+                        </div>
+                        <p style="font-size:0.9rem;">• Siswa Terdaftar: 492 siswa | Siswa Ikut: 451 siswa | Persentase: 91.67%</p>
+                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:5px;">
+                            <strong>Evaluasi:</strong> Partisipasi sangat stabil (~91%). Terdapat 41 siswa (8.33%) yang belum mengikuti tes.
+                        </p>
+
+                        <div class="section-title-box">
+                            <h4>B. Capaian Rata-Rata Nilai & Peta Kompetensi (Rata-rata Sekolah: 65.33 - Sedang / Cukup Baik)</h4>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Competency / Domain</th>
+                                    <th>Nilai Rata-rata</th>
+                                    <th>Keterangan</th>
+                                    <th>Sebaran Siswa (Baik / Sedang / Cukup / Rendah)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Evaluasi dan Apresiasi</td><td>69.73</td><td><span class="badge badge-success">Sedang</span></td><td>245 / 105 / 64 / 37</td></tr>
+                                <tr><td>Pemahaman Tekstual</td><td>64.17</td><td><span class="badge badge-success">Sedang</span></td><td>185 / 140 / 71 / 55</td></tr>
+                                <tr><td>Pemahaman Inferensial</td><td>62.08</td><td><span class="badge badge-success">Sedang</span></td><td>190 / 125 / 67 / 69</td></tr>
+                            </tbody>
+                        </table>
+
+                        <div class="section-title-box">
+                            <h4>Temuan Utama:</h4>
+                        </div>
+                        <ul class="info-list">
+                            <li><strong>Performa Merata:</strong> Seluruh domain stabil berada di kisaran 62–69 (Kategori "Sedang").</li>
+                            <li><strong>Kejutan pada Evaluasi & Apresiasi (69.73):</strong> Nilai tertinggi di Bahasa Inggris, 245 siswa (54.3%) berada di kategori Baik (muni menilai author's tone, purpose, & relevansi).</li>
+                            <li><strong>Tantangan Vocab & Struktur Teks:</strong> 126 siswa di Cukup/Rendah pada Pemahaman Tekstual & 136 siswa di Pemahaman Inferensial (kendala kosakata & kesimpulan tersirat).</li>
+                        </ul>
+
+                        <div class="section-title-box">
+                            <h4>2. Rencana Action Plan Sekolah (Agustus – Oktober)</h4>
+                        </div>
+
+                        <div class="glass-card" style="background: rgba(255,255,255,0.02);">
+                            <h5 style="color:var(--primary-purple);">Langkah 1: Tindakan Administrasi (Minggu I Agustus)</h5>
+                            <ul class="info-list">
+                                <li>Fasilitasi 41 siswa susulan & pengelompokan target (Vocabulary & Basic Reading vs Advanced Literacy).</li>
+                            </ul>
+
+                            <h5 style="color:var(--primary-purple); margin-top:15px;">Langkah 2: Strategi Pembelajaran di Kelas (Agustus – September)</h5>
+                            <ul class="info-list">
+                                <li><strong>A. Penguatan Tekstual & Inferensial:</strong> Program Daily Vocabulary Booster (5–10 academic vocab/synonyms per hari), teknik Context Clues & Scanning, serta drill soal Main Idea & Inference.</li>
+                                <li><strong>B. Pendampingan Evaluasi & Apresiasi:</strong> Bedah teks analitis (Tone & Purpose) & membaca teks multiparagraf (Science, Tech, Social Issues).</li>
+                            </ul>
+
+                            <h5 style="color:var(--primary-purple); margin-top:15px;">Langkah 3: Program Penguatan Tambahan (September – Oktober)</h5>
+                            <ul class="info-list">
+                                <li><strong>English Reading Habit:</strong> 15 menit/hari bacaan pendek TKA dengan waktu terukur.</li>
+                                <li><strong>Time Management & TO 2:</strong> Target menggeser kelompok "Sedang" (105–140 siswa) naik ke "Baik".</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. PERBANDINGAN MAPEL -->
+                <div id="sec-perbandingan" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-balance-scale"></i> Perbandingan Lintas Mata Pelajaran</h2>
+                        <p style="color:var(--text-muted); font-size:0.88rem; margin-top:5px;">
+                            Perbandingan rata-rata nilai dan persentase keikutsertaan antara Matematika, Bahasa Indonesia, dan Bahasa Inggris.
+                        </p>
+                        <canvas id="chartPerbandingan" style="max-height: 320px; margin-top: 20px;"></canvas>
+                    </div>
+                </div>
+
+                <!-- 9. TIMELINE RTL -->
+                <div id="sec-timeline" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-calendar-alt"></i> Combined Master Timeline RTL (Agustus – Oktober)</h2>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div style="font-weight:700; color:var(--primary);">[M1-M2 Agustus] ──> Fase Susulan & Matrikulasi</div>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
+                                    • Try Out Susulan bagi siswa yang belum ikut (MTK: 58, BIN: 40, BIG: 41).<br>
+                                    • Clustering kelompok remedial/pengayaan.<br>
+                                    • Pembentukan Bank Soal HOTS BIN & English Vocabulary List.<br>
+                                    • Remedial Matrikulasi Aljabar/Bilangan.
+                                </p>
+                            </div>
+                            <div class="timeline-item">
+                                <div style="font-weight:700; color:var(--primary-purple);">[M3 Aug - M2 Sep] ──> Fase Intervensi Intensif</div>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
+                                    • Bimbel Intensif Sore 2x seminggu + Tutor Sebaya (Trigonometri & Reading).<br>
+                                    • Drill Soal Inferensial & Evaluasi Teks Bahasa Indonesia.<br>
+                                    • Daily Vocabulary Booster & English Reading Habit (15 min/hari).<br>
+                                    • Gerakan Literasi HOTS Harian.
+                                </p>
+                            </div>
+                            <div class="timeline-item">
+                                <div style="font-weight:700; color:var(--accent-yellow);">[M3 Sep] ──> Evaluasi Mid-Term (Try Out 2)</div>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
+                                    • Pelaksanaan Try Out 2 untuk seluruh mata pelajaran TKA.<br>
+                                    • Evaluasi kenaikan kategori siswa (Target: pengangkatan kategori Cukup/Rendah ke Sedang/Baik).
+                                </p>
+                            </div>
+                            <div class="timeline-item">
+                                <div style="font-weight:700; color:var(--accent-rose);">[M4 Sep - M1 Okt] ──> Simulasi Final & Formatting Mental</div>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
+                                    • Simulasi Final TKA dengan kondisi, durasi, dan sistem persis tes sesungguhnya.<br>
+                                    • Pembekalan strategi manajemen waktu pengerjaan & ketahanan mental.
+                                </p>
+                            </div>
+                            <div class="timeline-item">
+                                <div style="font-weight:700; color:var(--accent-green);">[Oktober] ──> Pelaksanaan TKA Utama</div>
+                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
+                                    • Pelaksanaan Tes Kemampuan Akademik (TKA) Utama SMA Negeri 2 Bitung.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. KESIMPULAN -->
+                <div id="sec-kesimpulan" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-check-circle" style="color:var(--accent-green);"></i> Kesimpulan Rencana Tindak Lanjut</h2>
+                        <p style="margin-top:15px; line-height:1.6;">
+                            Hasil Try Out 1 TKA memberikan gambaran yang jelas mengenai kekuatan dan area perbaikan siswa SMAN 2 Bitung. Dengan keikutsertaan rata-rata mencapai ~90%, fokus sekolah kini tertuju pada intervensi kualitatif:
+                        </p>
+                        <ul class="info-list">
+                            <li><strong>Matematika:</strong> Memperbaiki konsep dasar Aljabar & Bilangan sebagai syarat mutlak peningkatan nilai keseluruhan.</li>
+                            <li><strong>Bahasa Indonesia:</strong> Menggeser kemampuan siswa dari sekadar Pemahaman Tekstual menuju tingkat penalaran HOTS (Inferensial, Evaluasi, & Apresiasi).</li>
+                            <li><strong>Bahasa Inggris:</strong> Memperkuat pemahaman kosakata akademik (vocabulary) dan efisiensi membaca teks multiparagraf.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 11. TENTANG PENYUSUN -->
+                <div id="sec-penyusun" class="content-section">
+                    <div class="glass-card" style="text-align: center; padding: 40px;">
+                        <div style="width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--primary-purple)); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: #fff;">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3 style="font-size:1.4rem;">Fredynandus Takalamingan, S.Si</h3>
+                        <p style="color: var(--primary); font-weight: 600; margin-top:4px;">Wakil Kepala Sekolah Bidang Kurikulum</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">SMA Negeri 2 Bitung</p>
+                        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 5px;">Penyusun Rencana Action Plan & Analisis Hasil TO 1 TKA</p>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Particles Animation Canvas
+        const canvas = document.getElementById('particles-js');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0;
+                if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(56, 189, 248, 0.3)';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < 50; i++) {
+            particles.push(new Particle());
+        }
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Counter Animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const speed = 200;
+                const updateCount = () => {
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+        animateCounters();
+
+        // Switch View Pages
+        function enterDashboard() {
+            document.getElementById('landing-page').style.display = 'none';
+            document.getElementById('dashboard-page').style.display = 'block';
+            initCharts();
+        }
+
+        function exitToLanding() {
+            document.getElementById('dashboard-page').style.display = 'none';
+            document.getElementById('landing-page').style.display = 'flex';
+        }
+
+        // SPA Navigation
+        function nav(secId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            const target = document.getElementById('sec-' + secId);
+            if (target) target.classList.add('active');
+
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => item.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+
+            const titleMap = {
+                'beranda': 'Beranda',
+                'pengantar': 'Pengantar RTL',
+                'tujuan': 'Tujuan Strategis',
+                'ringkasan': 'Ringkasan Hasil',
+                'matematika': 'Analisis Matematika',
+                'indonesia': 'Analisis Bahasa Indonesia',
+                'inggris': 'Analisis Bahasa Inggris',
+                'perbandingan': 'Perbandingan Mapel',
+                'timeline': 'Timeline RTL',
+                'kesimpulan': 'Kesimpulan',
+                'penyusun': 'Tentang Penyusun'
+            };
+            document.getElementById('breadcrumb-title').innerText = titleMap[secId] || 'Section';
+        }
+
+        // Sidebar Collapse
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('collapsed');
+            document.getElementById('mainContent').classList.toggle('expanded');
+        }
+
+        // Search Filter
+        function filterMenu() {
+            const input = document.getElementById('menuSearch').value.toLowerCase();
+            const items = document.querySelectorAll('#menuList .menu-item');
+            items.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                item.style.display = text.includes(input) ? 'flex' : 'none';
+            });
+        }
+
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+
+            const icons = [document.getElementById('theme-icon-landing'), document.getElementById('theme-icon-dashboard')];
+            icons.forEach(icon => {
+                if(icon) {
+                    icon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+                }
+            });
+        }
+
+        // Chart.js Initialize
+        let chartInit = false;
+        function initCharts() {
+            if (chartInit) return;
+            chartInit = true;
+
+            // Chart Beranda
+            const ctx1 = document.getElementById('chartBeranda').getContext('2d');
+            new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: ['Matematika', 'B. Indonesia', 'B. Inggris'],
+                    datasets: [{
+                        label: 'Nilai Rata-rata',
+                        data: [50.30, 61.26, 65.33],
+                        backgroundColor: ['#38bdf8', '#34d399', '#a855f7'],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Chart Perbandingan
+            const ctx2 = document.getElementById('chartPerbandingan').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Matematika', 'Bahasa Indonesia', 'Bahasa Inggris'],
+                    datasets: [
+                        {
+                            label: 'Rata-rata Nilai',
+                            data: [50.30, 61.26, 65.33],
+                            backgroundColor: '#38bdf8'
+                        },
+                        {
+                            label: '% Keikutsertaan',
+                            data: [88.21, 91.87, 91.67],
+                            backgroundColor: '#a855f7'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: { beginAtZero: true, max: 100 }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
