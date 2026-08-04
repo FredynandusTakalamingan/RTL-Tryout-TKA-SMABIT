@@ -634,6 +634,8 @@
                     <li class="menu-item" onclick="nav('pengantar')"><i class="fas fa-book-open"></i><span class="menu-title">Pengantar</span></li>
                     <li class="menu-item" onclick="nav('tujuan')"><i class="fas fa-bullseye"></i><span class="menu-title">Tujuan</span></li>
                     <li class="menu-item" onclick="nav('ringkasan')"><i class="fas fa-chart-pie"></i><span class="menu-title">Ringkasan Hasil</span></li>
+                    <!-- MENU BARU TAMBAHAN -->
+                    <li class="menu-item" onclick="nav('komparasi')"><i class="fas fa-table"></i><span class="menu-title">Komparasi Nilai</span></li>
                     <li class="menu-item" onclick="nav('matematika')"><i class="fas fa-calculator"></i><span class="menu-title">Analisis Matematika</span></li>
                     <li class="menu-item" onclick="nav('indonesia')"><i class="fas fa-language"></i><span class="menu-title">Bahasa Indonesia</span></li>
                     <li class="menu-item" onclick="nav('inggris')"><i class="fas fa-globe"></i><span class="menu-title">Bahasa Inggris</span></li>
@@ -792,6 +794,114 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+
+                <!-- KONTEN MENU BARU: KOMPARASI NILAI -->
+                <div id="sec-komparasi" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-table" style="color: var(--primary);"></i> Tabel Komparasi Nilai</h2>
+                        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 5px;">Perbandingan Nilai TKA Tahun 2025 dengan Try Out 1 TKA</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Mata Pelajaran</th>
+                                    <th>Indikator</th>
+                                    <th>TKA Tahun 2025</th>
+                                    <th>Try Out 1 TKA</th>
+                                    <th>Selisih (Kenaikan / Penurunan)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td rowspan="3"><strong>Bahasa Indonesia</strong></td>
+                                    <td>Rata-Rata</td>
+                                    <td>53,00</td>
+                                    <td>63,05</td>
+                                    <td><span class="badge badge-success">🟢 +10,05</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Nilai Tertinggi</td>
+                                    <td>81,00</td>
+                                    <td>86,67</td>
+                                    <td><span class="badge badge-success">🟢 +5,67</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Nilai Terendah</td>
+                                    <td>5,00</td>
+                                    <td>13,33</td>
+                                    <td><span class="badge badge-success">🟢 +8,33</span></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3"><strong>Bahasa Inggris</strong></td>
+                                    <td>Rata-Rata</td>
+                                    <td>25,00</td>
+                                    <td>65,33</td>
+                                    <td><span class="badge badge-success">🟢 +40,33</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Nilai Tertinggi</td>
+                                    <td>64,00</td>
+                                    <td>100,00</td>
+                                    <td><span class="badge badge-success">🟢 +36,00</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Nilai Terendah</td>
+                                    <td>0,00</td>
+                                    <td>3,33</td>
+                                    <td><span class="badge badge-success">🟢 +3,33</span></td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3"><strong>Matematika</strong></td>
+                                    <td>Rata-Rata</td>
+                                    <td>34,00</td>
+                                    <td>50,31</td>
+                                    <td><span class="badge badge-success">🟢 +16,31</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Nilai Tertinggi</td>
+                                    <td>68,00</td>
+                                    <td>90,00</td>
+                                    <td><span class="badge badge-success">🟢 +22,00</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Nilai Terendah</td>
+                                    <td>5,00</td>
+                                    <td>5,00</td>
+                                    <td><span class="badge badge-warning">➖ 0,00</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="glass-card">
+                        <h2><i class="fas fa-chart-line" style="color: var(--accent-green);"></i> Analisis Perbandingan & Poin Penting</h2>
+                        
+                        <div class="section-title-box">
+                            <h4>1. Peningkatan Rata-Rata Nilai Secara Keseluruhan</h4>
+                        </div>
+                        <ul class="info-list">
+                            <li><strong>Bahasa Inggris:</strong> Mengalami peningkatan rata-rata paling signifikan, yaitu naik sebesar <strong>40,33 poin</strong> (dari 25,00 menjadi 65,33).</li>
+                            <li><strong>Matematika:</strong> Menunjukkan peningkatan rata-rata sebesar <strong>16,31 poin</strong> (dari 34,00 menjadi 50,31).</li>
+                            <li><strong>Bahasa Indonesia:</strong> Mengalami peningkatan rata-rata sebesar <strong>10,05 poin</strong> (dari 53,00 menjadi 63,05).</li>
+                        </ul>
+
+                        <div class="section-title-box">
+                            <h4>2. Capaian Nilai Maksimum (Tertinggi)</h4>
+                        </div>
+                        <ul class="info-list">
+                            <li>Nilai tertinggi pada Try Out melampaui capaian TKA 2025 di ketiga mata pelajaran.</li>
+                            <li>Pada pelajaran <strong>Bahasa Inggris</strong>, terdapat siswa yang berhasil mencapai nilai sempurna (<strong>100,00</strong>).</li>
+                            <li>Nilai tertinggi <strong>Matematika</strong> naik dari 68,00 menjadi 90,00 (<strong>+22,00 poin</strong>).</li>
+                        </ul>
+
+                        <div class="section-title-box">
+                            <h4>3. Tingkat Partisipasi</h4>
+                        </div>
+                        <ul class="info-list">
+                            <li><strong>TKA Tahun 2025:</strong> Diikuti oleh 541 peserta dari total 542 siswa.</li>
+                            <li><strong>Try Out 1 TKA:</strong> Jumlah peserta bervariasi tiap mata pelajaran, yakni Bahasa Indonesia (452 siswa), Bahasa Inggris (451 siswa), dan Matematika (434 siswa).</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1193,13 +1303,16 @@
 
             const menuItems = document.querySelectorAll('.menu-item');
             menuItems.forEach(item => item.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            if(event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
 
             const titleMap = {
                 'beranda': 'Beranda',
                 'pengantar': 'Pengantar RTL',
                 'tujuan': 'Tujuan Strategis',
                 'ringkasan': 'Ringkasan Hasil',
+                'komparasi': 'Komparasi Nilai',
                 'matematika': 'Analisis Matematika',
                 'indonesia': 'Analisis Bahasa Indonesia',
                 'inggris': 'Analisis Bahasa Inggris',
