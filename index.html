@@ -447,6 +447,56 @@
             font-weight: 600;
         }
 
+        /* Style Khusus Tabel Jadwal */
+        .schedule-table th, .schedule-table td {
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid var(--panel-border);
+        }
+        
+        .schedule-item {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 8px;
+            padding: 6px 10px;
+            margin: 3px 0;
+            font-size: 0.82rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        .schedule-item.mtk {
+            background: rgba(251, 191, 36, 0.12);
+            border-color: rgba(251, 191, 36, 0.35);
+            color: var(--accent-yellow);
+        }
+
+        .schedule-item.indo {
+            background: rgba(52, 211, 153, 0.12);
+            border-color: rgba(52, 211, 153, 0.35);
+            color: var(--accent-green);
+        }
+
+        .schedule-item.ingg {
+            background: rgba(168, 85, 247, 0.12);
+            border-color: rgba(168, 85, 247, 0.35);
+            color: var(--primary-purple);
+        }
+
+        .schedule-item.asesmen {
+            background: rgba(244, 63, 94, 0.12);
+            border-color: rgba(244, 63, 94, 0.35);
+            color: var(--accent-rose);
+        }
+
+        .schedule-item .jam {
+            font-weight: 600;
+            font-size: 0.78rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
         .badge {
             padding: 4px 10px;
             border-radius: 12px;
@@ -636,7 +686,6 @@
                     <li class="menu-item" onclick="nav('ringkasan')"><i class="fas fa-chart-pie"></i><span class="menu-title">Ringkasan Hasil</span></li>
                     <li class="menu-item" onclick="nav('komparasi')"><i class="fas fa-table"></i><span class="menu-title">Komparasi Nilai</span></li>
                     <li class="menu-item" onclick="nav('indikator')"><i class="fas fa-list-check"></i><span class="menu-title">Indikator Materi</span></li>
-                    <!-- MENU BARU: JADWAL BIMBINGAN TKA -->
                     <li class="menu-item" onclick="nav('jadwal-tka')"><i class="fas fa-calendar-week"></i><span class="menu-title">Jadwal Bimbingan TKA</span></li>
                     <li class="menu-item" onclick="nav('matematika')"><i class="fas fa-calculator"></i><span class="menu-title">Analisis Matematika</span></li>
                     <li class="menu-item" onclick="nav('indonesia')"><i class="fas fa-language"></i><span class="menu-title">Bahasa Indonesia</span></li>
@@ -1105,128 +1154,187 @@
                     </div>
                 </div>
 
-                <!-- KONTEN MENU BARU: JADWAL BIMBINGAN TKA -->
+                <!-- KONTEN MENU REVISI: JADWAL BIMBINGAN TKA -->
                 <div id="sec-jadwal-tka" class="content-section">
                     <div class="glass-card">
                         <h2><i class="fas fa-calendar-week" style="color: var(--primary);"></i> Jadwal Penguatan Mapel TKA</h2>
                         <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 5px;">Jadwal Pelaksanaan Bimbingan Penguatan TKA untuk Kelas XII Menurut Hari dan Jam Pelajaran</p>
                         
                         <div style="overflow-x: auto; margin-top: 20px;">
-                            <table>
+                            <table class="schedule-table">
                                 <thead>
                                     <tr>
-                                        <th>Kelas</th>
-                                        <th>Senin</th>
-                                        <th>Selasa</th>
-                                        <th>Rabu</th>
-                                        <th>Kamis</th>
-                                        <th>Jumat</th>
+                                        <th style="width: 5%;">No</th>
+                                        <th style="width: 10%;">Kelas</th>
+                                        <th style="width: 17%;">Senin</th>
+                                        <th style="width: 17%;">Selasa</th>
+                                        <th style="width: 17%;">Rabu</th>
+                                        <th style="width: 17%;">Kamis</th>
+                                        <th style="width: 17%;">Jumat</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
+                                        <td>1</td>
                                         <td><strong>XII A1</strong></td>
-                                        <td>Jam 6,7,8,9,10: MTK</td>
-                                        <td>Bahasa Inggris</td>
-                                        <td>Jam 3,4,5: MTK</td>
-                                        <td>Jam 1,2,3: Bahasa Indonesia</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 6, 7, 8, 9, 10</span> Matematika</div></td>
+                                        <td><div class="schedule-item ingg"><span class="jam">Jam 1,2 3</span> Bahasa Inggris</div></td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 3, 4, 5</span> Matematika</div></td>
+                                        <td><div class="schedule-item indo"><span class="jam">Jam 1, 2, 3</span> Bahasa Indonesia</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>2</td>
                                         <td><strong>XII A2</strong></td>
-                                        <td>Jam 1,2,3: Bahasa Indonesia</td>
-                                        <td>Jam 5,6,7: MTK</td>
-                                        <td>Jam 8,9,10: Bahasa Inggris</td>
-                                        <td>Jam 1,2,3: MTK</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td><div class="schedule-item indo"><span class="jam">Jam 1, 2, 3</span> Bahasa Indonesia</div></td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 5, 6, 7</span> Matematika</div></td>
+                                        <td><div class="schedule-item ingg"><span class="jam">Jam 8, 9, 10</span> Bahasa Inggris</div></td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 1, 2, 3</span> Matematika</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>3</td>
                                         <td><strong>XII B1</strong></td>
-                                        <td>Jam 1,2,3,4: MTK</td>
-                                        <td>Jam 3,4,5: MTK<br>Jam 8,9,10: Bahasa Indonesia</td>
-                                        <td>Jam 3,4,5: Bahasa Inggris</td>
-                                        <td>Jam 4,5: MTK<br>Jam 8,9,10: MTK</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 1, 2, 3, 4</span> Matematika</div></td>
+                                        <td>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 3, 4, 5</span> Matematika</div>
+                                            <div class="schedule-item indo"><span class="jam">Jam 8, 9, 10</span> Bahasa Indonesia</div>
+                                        </td>
+                                        <td><div class="schedule-item ingg"><span class="jam">Jam 3, 4, 5</span> Bahasa Inggris</div></td>
+                                        <td>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 4, 5</span> Matematika</div>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 8, 9, 10</span> Matematika</div>
+                                        </td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>4</td>
                                         <td><strong>XII B2</strong></td>
-                                        <td>Jam 7,8,9,10: MTK</td>
-                                        <td>-</td>
-                                        <td>Jam 6,7,8: Bahasa Indonesia<br>Jam 9,10: MTK</td>
-                                        <td>Jam 3,4,5: Bahasa Inggris<br>Jam 8,9,10: MTK</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 7, 8, 9, 10</span> Matematika</div></td>
+                                        <td><span style="color: var(--text-muted); font-size: 0.85rem;">-</span></td>
+                                        <td>
+                                            <div class="schedule-item indo"><span class="jam">Jam 6, 7, 8</span> Bahasa Indonesia</div>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 9, 10</span> Matematika</div>
+                                        </td>
+                                        <td>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 3, 4, 5</span> Bahasa Inggris</div>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 8, 9, 10</span> Matematika</div>
+                                        </td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>5</td>
                                         <td><strong>XII C1</strong></td>
-                                        <td>Jam 2,3: Bahasa Inggris<br>Jam 4,5,6: Bahasa Inggris</td>
-                                        <td>Jam 1,2,3: Bahasa Inggris<br>Jam 6,7,8: Bahasa Indonesia</td>
-                                        <td>Jam 8,9,10: MTK</td>
-                                        <td>Jam 7,8,9,10: MTK</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 2, 3</span> Bahasa Inggris</div>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 4, 5, 6</span> Bahasa Inggris</div>
+                                        </td>
+                                        <td>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 1, 2, 3</span> Bahasa Inggris</div>
+                                            <div class="schedule-item indo"><span class="jam">Jam 6, 7, 8</span> Bahasa Indonesia</div>
+                                        </td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 8, 9, 10</span> Matematika</div></td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 7, 8, 9, 10</span> Matematika</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>6</td>
                                         <td><strong>XII C2</strong></td>
-                                        <td>Jam 2,3: Bahasa Inggris<br>Jam 4,5,6: MTK</td>
-                                        <td>Jam 1,2,3: MTK<br>Jam 6,7,8: Bahasa Inggris</td>
-                                        <td>Jam 1,2: MTK</td>
-                                        <td>Jam 5,6,7: Bahasa Inggris</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 2, 3</span> Bahasa Inggris</div>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 4, 5, 6</span> Matematika</div>
+                                        </td>
+                                        <td>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 1, 2, 3</span> Matematika</div>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 6, 7, 8</span> Bahasa Inggris</div>
+                                        </td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 1, 2</span> Matematika</div></td>
+                                        <td><div class="schedule-item ingg"><span class="jam">Jam 5, 6, 7</span> Bahasa Inggris</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>7</td>
                                         <td><strong>XII C3</strong></td>
-                                        <td>Jam 4,5: MTK<br>Jam 6,7,8,9,10: MTK</td>
-                                        <td>Jam 6,7,8,9,10: MTK</td>
-                                        <td>Jam 6,7,8,9,10: Bahasa Inggris</td>
-                                        <td>Jam 5,6,7: Bahasa Indonesia<br>Jam 8,9,10: MTK</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 4, 5</span> Matematika</div>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 6, 7, 8, 9, 10</span> Matematika</div>
+                                        </td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 6, 7, 8, 9, 10</span> Matematika</div></td>
+                                        <td><div class="schedule-item ingg"><span class="jam">Jam 6, 7, 8, 9, 10</span> Bahasa Inggris</div></td>
+                                        <td>
+                                            <div class="schedule-item indo"><span class="jam">Jam 5, 6, 7</span> Bahasa Indonesia</div>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 8, 9, 10</span> Matematika</div>
+                                        </td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>8</td>
                                         <td><strong>XII D</strong></td>
-                                        <td>Jam 2,3: MTK</td>
-                                        <td>Jam 1,2,3: Bahasa Inggris<br>Jam 8,9,10: MTK</td>
-                                        <td>Jam 6,7,8,9,10: MTK</td>
-                                        <td>Jam 6,7,8: Bahasa Indonesia</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 2, 3</span> Matematika</div></td>
+                                        <td>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 1, 2, 3</span> Bahasa Inggris</div>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 8, 9, 10</span> Matematika</div>
+                                        </td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 6, 7, 8, 9, 10</span> Matematika</div></td>
+                                        <td><div class="schedule-item indo"><span class="jam">Jam 6, 7, 8</span> Bahasa Indonesia</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>9</td>
                                         <td><strong>XII E</strong></td>
-                                        <td>-</td>
-                                        <td>Jam 8,9,10: MTK</td>
-                                        <td>Jam 3,4,5: Bahasa Inggris</td>
-                                        <td>Jam 1,2,3: MTK</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td><span style="color: var(--text-muted); font-size: 0.85rem;">-</span></td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 8, 9, 10</span> Matematika</div></td>
+                                        <td><div class="schedule-item ingg"><span class="jam">Jam 3, 4, 5</span> Bahasa Inggris</div></td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 1, 2, 3</span> Matematika</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>10</td>
                                         <td><strong>XII F</strong></td>
-                                        <td>-</td>
-                                        <td>Jam 5,6,7: MTK<br>Jam 8,9,10: Bahasa Inggris</td>
-                                        <td>Jam 6,7,8: Bahasa Indonesia</td>
-                                        <td>Jam 3,4,5: Bahasa Indonesia</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td><span style="color: var(--text-muted); font-size: 0.85rem;">-</span></td>
+                                        <td>
+                                            <div class="schedule-item mtk"><span class="jam">Jam 5, 6, 7</span> Matematika</div>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 8, 9, 10</span> Bahasa Inggris</div>
+                                        </td>
+                                        <td><div class="schedule-item indo"><span class="jam">Jam 6, 7, 8</span> Bahasa Indonesia</div></td>
+                                        <td><div class="schedule-item indo"><span class="jam">Jam 3, 4, 5</span> Bahasa Indonesia</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>11</td>
                                         <td><strong>XII G1</strong></td>
-                                        <td>Jam 8,9,10: Bahasa Indonesia</td>
-                                        <td>Jam 3,4,5,6: Bahasa Inggris</td>
-                                        <td>Jam 1,2: Bahasa Indonesia<br>Jam 3,4,5: Bahasa Inggris</td>
-                                        <td>Jam 5,6,7,8: MTK</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td><div class="schedule-item indo"><span class="jam">Jam 8, 9, 10</span> Bahasa Indonesia</div></td>
+                                        <td><div class="schedule-item ingg"><span class="jam">Jam 3, 4, 5, 6</span> Bahasa Inggris</div></td>
+                                        <td>
+                                            <div class="schedule-item indo"><span class="jam">Jam 1, 2</span> Bahasa Indonesia</div>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 3, 4, 5</span> Bahasa Inggris</div>
+                                        </td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 5, 6, 7, 8</span> Matematika</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>12</td>
                                         <td><strong>XII G2</strong></td>
-                                        <td>Jam 6,7,8: Bahasa Indonesia</td>
-                                        <td>Jam 1,2,3: Bahasa Inggris</td>
-                                        <td>Jam 8,9,10: Bahasa Indonesia</td>
-                                        <td>Jam 1,2,3,4: MTK</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td><div class="schedule-item indo"><span class="jam">Jam 6, 7, 8</span> Bahasa Indonesia</div></td>
+                                        <td><div class="schedule-item ingg"><span class="jam">Jam 1, 2, 3</span> Bahasa Inggris</div></td>
+                                        <td><div class="schedule-item indo"><span class="jam">Jam 8, 9, 10</span> Bahasa Indonesia</div></td>
+                                        <td><div class="schedule-item mtk"><span class="jam">Jam 1, 2, 3, 4</span> Matematika</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                     <tr>
+                                        <td>13</td>
                                         <td><strong>XII H</strong></td>
-                                        <td>Jam 4,5,6: Bahasa Indonesia<br>Jam 9,10: Bahasa Inggris</td>
-                                        <td>Jam 3,4: Bahasa Indonesia<br>Jam 5,6,7: Bahasa Inggris</td>
-                                        <td>Jam 3,4,5: Bahasa Inggris</td>
-                                        <td>Jam 8,9,10: Bahasa Indonesia</td>
-                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                        <td>
+                                            <div class="schedule-item indo"><span class="jam">Jam 4, 5, 6</span> Bahasa Indonesia</div>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 9, 10</span> Bahasa Inggris</div>
+                                        </td>
+                                        <td>
+                                            <div class="schedule-item indo"><span class="jam">Jam 3, 4</span> Bahasa Indonesia</div>
+                                            <div class="schedule-item ingg"><span class="jam">Jam 5, 6, 7</span> Bahasa Inggris</div>
+                                        </td>
+                                        <td><div class="schedule-item ingg"><span class="jam">Jam 3, 4, 5</span> Bahasa Inggris</div></td>
+                                        <td><div class="schedule-item indo"><span class="jam">Jam 8, 9, 10</span> Bahasa Indonesia</div></td>
+                                        <td><div class="schedule-item asesmen"><span class="jam">Jam 1, 2, 3, 4, 5</span> ASESMEN</div></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1524,26 +1632,24 @@
                     <div class="glass-card">
                         <h2><i class="fas fa-check-circle" style="color:var(--accent-green);"></i> Kesimpulan Rencana Tindak Lanjut</h2>
                         <p style="margin-top:15px; line-height:1.6;">
-                            Hasil Try Out 1 TKA memberikan gambaran yang jelas mengenai kekuatan dan area perbaikan siswa SMAN 2 Bitung. Dengan keikutsertaan rata-rata mencapai ~90%, fokus sekolah kini tertuju pada intervensi kualitatif:
+                            Hasil Try Out 1 TKA memberikan gambaran yang jelas mengenai kekuatan dan area perbaikan siswa SMAN 2 Bitung. Melalui implementasi RTL terstruktur yang terfokus pada remedial matrikulasi, peningkatan literasi HOTS, daily vocabulary booster, serta asesmen mingguan teratur, diharapkan seluruh peserta didik dapat mencapai potensi terbaiknya pada Tes Kemampuan Akademik (TKA) mendatang.
                         </p>
-                        <ul class="info-list">
-                            <li><strong>Matematika:</strong> Memperbaiki konsep dasar Aljabar & Bilangan sebagai syarat mutlak peningkatan nilai keseluruhan.</li>
-                            <li><strong>Bahasa Indonesia:</strong> Menggeser kemampuan siswa dari sekadar Pemahaman Tekstual menuju tingkat penalaran HOTS (Inferensial, Evaluasi, & Apresiasi).</li>
-                            <li><strong>Bahasa Inggris:</strong> Memperkuat pemahaman kosakata akademik (vocabulary) dan efisiensi membaca teks multiparagraf.</li>
-                        </ul>
                     </div>
                 </div>
 
                 <!-- 11. TENTANG PENYUSUN -->
                 <div id="sec-penyusun" class="content-section">
-                    <div class="glass-card" style="text-align: center; padding: 40px;">
-                        <div style="width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--primary-purple)); border-radius: 50%; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: #fff;">
+                    <div class="glass-card" style="text-align: center; padding: 40px 20px;">
+                        <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary), var(--primary-purple)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; font-size: 2.5rem; color: #fff; box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);">
                             <i class="fas fa-user-tie"></i>
                         </div>
-                        <h3 style="font-size:1.4rem;">Fredynandus Takalamingan, S.Si</h3>
-                        <p style="color: var(--primary); font-weight: 600; margin-top:4px;">Wakil Kepala Sekolah Bidang Kurikulum</p>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 10px;">SMA Negeri 2 Bitung</p>
-                        <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 5px;">Penyusun Rencana Action Plan & Analisis Hasil TO 1 TKA</p>
+                        <h2 style="font-size: 1.5rem;">Fredynandus Takalamingan, S.Si</h2>
+                        <p style="color: var(--primary); font-weight: 600; margin-top: 5px;">Wakil Kepala Sekolah Bidang Kurikulum</p>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 2px;">SMA Negeri 2 Bitung</p>
+                        <hr style="border: 0; border-top: 1px solid var(--panel-border); margin: 25px auto; width: 60%;">
+                        <p style="max-width: 600px; margin: 0 auto; font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
+                            Bertanggung jawab dalam penyusunan, pengawasan, dan evaluasi program akademik serta Rencana Tindak Lanjut (RTL) Try Out Tes Kemampuan Akademik (TKA) di SMAN 2 Bitung.
+                        </p>
                     </div>
                 </div>
 
@@ -1551,111 +1657,62 @@
         </div>
     </section>
 
-    <!-- Scripts -->
+    <!-- Scripts Javascript -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Init AOS Library
         AOS.init();
 
-        // Particles Animation Canvas
-        const canvas = document.getElementById('particles-js');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 2 + 1;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
-            }
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.x > canvas.width) this.x = 0;
-                if (this.x < 0) this.x = canvas.width;
-                if (this.y > canvas.height) this.y = 0;
-                if (this.y < 0) this.y = canvas.height;
-            }
-            draw() {
-                ctx.fillStyle = 'rgba(56, 189, 248, 0.3)';
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const htmlTag = document.documentElement;
+            const currentTheme = htmlTag.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            htmlTag.setAttribute('data-theme', newTheme);
+            
+            const iconLanding = document.getElementById('theme-icon-landing');
+            const iconDash = document.getElementById('theme-icon-dashboard');
+            
+            if (newTheme === 'light') {
+                if(iconLanding) iconLanding.className = 'fas fa-sun';
+                if(iconDash) iconDash.className = 'fas fa-sun';
+            } else {
+                if(iconLanding) iconLanding.className = 'fas fa-moon';
+                if(iconDash) iconDash.className = 'fas fa-moon';
             }
         }
 
-        for (let i = 0; i < 50; i++) {
-            particles.push(new Particle());
-        }
-
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
-            });
-            requestAnimationFrame(animateParticles);
-        }
-        animateParticles();
-
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const speed = 200;
-                const updateCount = () => {
-                    const count = +counter.innerText;
-                    const inc = target / speed;
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + inc);
-                        setTimeout(updateCount, 20);
-                    } else {
-                        counter.innerText = target;
-                    }
-                };
-                updateCount();
-            });
-        }
-        animateCounters();
-
-        // Switch View Pages
+        // Navigation Switcher
         function enterDashboard() {
             document.getElementById('landing-page').style.display = 'none';
             document.getElementById('dashboard-page').style.display = 'block';
+            window.scrollTo(0, 0);
             initCharts();
         }
 
         function exitToLanding() {
             document.getElementById('dashboard-page').style.display = 'none';
             document.getElementById('landing-page').style.display = 'flex';
+            window.scrollTo(0, 0);
         }
 
-        // SPA Navigation
-        function nav(secId) {
+        function nav(sectionId) {
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(sec => sec.classList.remove('active'));
 
-            const target = document.getElementById('sec-' + secId);
-            if (target) target.classList.add('active');
-
             const menuItems = document.querySelectorAll('.menu-item');
             menuItems.forEach(item => item.classList.remove('active'));
-            if(event && event.currentTarget) {
-                event.currentTarget.classList.add('active');
+
+            const targetSection = document.getElementById('sec-' + sectionId);
+            if(targetSection) {
+                targetSection.classList.add('active');
             }
+
+            event.currentTarget.classList.add('active');
 
             const titleMap = {
                 'beranda': 'Beranda',
-                'pengantar': 'Pengantar RTL',
+                'pengantar': 'Pengantar',
                 'tujuan': 'Tujuan Strategis',
                 'ringkasan': 'Ringkasan Hasil',
                 'komparasi': 'Komparasi Nilai',
@@ -1669,88 +1726,119 @@
                 'kesimpulan': 'Kesimpulan',
                 'penyusun': 'Tentang Penyusun'
             };
-            document.getElementById('breadcrumb-title').innerText = titleMap[secId] || 'Section';
+            document.getElementById('breadcrumb-title').innerText = titleMap[sectionId] || 'Dashboard';
+            window.scrollTo(0, 0);
         }
 
         // Sidebar Collapse
         function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('collapsed');
-            document.getElementById('mainContent').classList.toggle('expanded');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('mainContent');
+            sidebar.classList.toggle('collapsed');
+            mainContent.classList.toggle('expanded');
         }
 
-        // Search Filter
+        // Sidebar Search Filter
         function filterMenu() {
-            const input = document.getElementById('menuSearch').value.toLowerCase();
+            const query = document.getElementById('menuSearch').value.toLowerCase();
             const items = document.querySelectorAll('#menuList .menu-item');
+
             items.forEach(item => {
                 const text = item.innerText.toLowerCase();
-                item.style.display = text.includes(input) ? 'flex' : 'none';
-            });
-        }
-
-        // Theme Toggle
-        function toggleTheme() {
-            const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            html.setAttribute('data-theme', newTheme);
-
-            const icons = [document.getElementById('theme-icon-landing'), document.getElementById('theme-icon-dashboard')];
-            icons.forEach(icon => {
-                if(icon) {
-                    icon.className = newTheme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
+                if(text.includes(query)) {
+                    item.style.display = 'flex';
+                } else {
+                    item.style.display = 'none';
                 }
             });
         }
 
-        // Chart.js Initialize
-        let chartInit = false;
+        // Stats Counter Animation
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / 50;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
+
+        // Initialize Charts
+        let chartsInitialized = false;
         function initCharts() {
-            if (chartInit) return;
-            chartInit = true;
+            if(chartsInitialized) return;
+            chartsInitialized = true;
 
             // Chart Beranda
-            const ctx1 = document.getElementById('chartBeranda').getContext('2d');
-            new Chart(ctx1, {
+            const ctxBeranda = document.getElementById('chartBeranda').getContext('2d');
+            new Chart(ctxBeranda, {
                 type: 'bar',
                 data: {
-                    labels: ['Matematika', 'B. Indonesia', 'B. Inggris'],
+                    labels: ['Matematika', 'Bahasa Indonesia', 'Bahasa Inggris'],
                     datasets: [{
-                        label: 'Nilai Rata-rata',
+                        label: 'Rata-Rata Nilai TO 1',
                         data: [50.30, 61.26, 65.33],
-                        backgroundColor: ['#38bdf8', '#34d399', '#a855f7'],
+                        backgroundColor: [
+                            'rgba(251, 191, 36, 0.7)',
+                            'rgba(52, 211, 153, 0.7)',
+                            'rgba(168, 85, 247, 0.7)'
+                        ],
+                        borderColor: [
+                            '#fbbf24',
+                            '#34d399',
+                            '#a855f7'
+                        ],
+                        borderWidth: 1.5,
                         borderRadius: 8
                     }]
                 },
                 options: {
                     responsive: true,
-                    plugins: { legend: { display: false } }
+                    scales: {
+                        y: { beginAtZero: true, max: 100 }
+                    }
                 }
             });
 
             // Chart Perbandingan
-            const ctx2 = document.getElementById('chartPerbandingan').getContext('2d');
-            new Chart(ctx2, {
-                type: 'bar',
+            const ctxPerbandingan = document.getElementById('chartPerbandingan').getContext('2d');
+            new Chart(ctxPerbandingan, {
+                type: 'radar',
                 data: {
-                    labels: ['Matematika', 'Bahasa Indonesia', 'Bahasa Inggris'],
+                    labels: ['Rata-rata Nilai', '% Keikutsertaan', 'Domain Terbaik', 'Tingkat Kelulusan', 'Capaian HOTS'],
                     datasets: [
                         {
-                            label: 'Rata-rata Nilai',
-                            data: [50.30, 61.26, 65.33],
-                            backgroundColor: '#38bdf8'
+                            label: 'Matematika',
+                            data: [50.3, 88.2, 60.1, 55, 42.8],
+                            borderColor: '#fbbf24',
+                            backgroundColor: 'rgba(251, 191, 36, 0.2)'
                         },
                         {
-                            label: '% Keikutsertaan',
-                            data: [88.21, 91.87, 91.67],
-                            backgroundColor: '#a855f7'
+                            label: 'Bahasa Indonesia',
+                            data: [61.2, 91.8, 83.4, 75, 52.5],
+                            borderColor: '#34d399',
+                            backgroundColor: 'rgba(52, 211, 153, 0.2)'
+                        },
+                        {
+                            label: 'Bahasa Inggris',
+                            data: [65.3, 91.6, 69.7, 78, 62.0],
+                            borderColor: '#a855f7',
+                            backgroundColor: 'rgba(168, 85, 247, 0.2)'
                         }
                     ]
                 },
                 options: {
                     responsive: true,
                     scales: {
-                        y: { beginAtZero: true, max: 100 }
+                        r: { beginAtZero: true, max: 100 }
                     }
                 }
             });
