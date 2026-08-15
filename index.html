@@ -634,9 +634,10 @@
                     <li class="menu-item" onclick="nav('pengantar')"><i class="fas fa-book-open"></i><span class="menu-title">Pengantar</span></li>
                     <li class="menu-item" onclick="nav('tujuan')"><i class="fas fa-bullseye"></i><span class="menu-title">Tujuan</span></li>
                     <li class="menu-item" onclick="nav('ringkasan')"><i class="fas fa-chart-pie"></i><span class="menu-title">Ringkasan Hasil</span></li>
-                    <!-- MENU BARU TAMBAHAN -->
                     <li class="menu-item" onclick="nav('komparasi')"><i class="fas fa-table"></i><span class="menu-title">Komparasi Nilai</span></li>
                     <li class="menu-item" onclick="nav('indikator')"><i class="fas fa-list-check"></i><span class="menu-title">Indikator Materi</span></li>
+                    <!-- MENU BARU: JADWAL BIMBINGAN TKA -->
+                    <li class="menu-item" onclick="nav('jadwal-tka')"><i class="fas fa-calendar-week"></i><span class="menu-title">Jadwal Bimbingan TKA</span></li>
                     <li class="menu-item" onclick="nav('matematika')"><i class="fas fa-calculator"></i><span class="menu-title">Analisis Matematika</span></li>
                     <li class="menu-item" onclick="nav('indonesia')"><i class="fas fa-language"></i><span class="menu-title">Bahasa Indonesia</span></li>
                     <li class="menu-item" onclick="nav('inggris')"><i class="fas fa-globe"></i><span class="menu-title">Bahasa Inggris</span></li>
@@ -798,7 +799,7 @@
                     </div>
                 </div>
 
-                <!-- KONTEN MENU BARU: KOMPARASI NILAI -->
+                <!-- KONTEN MENU: KOMPARASI NILAI -->
                 <div id="sec-komparasi" class="content-section">
                     <div class="glass-card">
                         <h2><i class="fas fa-table" style="color: var(--primary);"></i> Tabel Komparasi Nilai</h2>
@@ -906,7 +907,7 @@
                     </div>
                 </div>
 
-                <!-- KONTEN MENU BARU: INDIKATOR MATERI -->
+                <!-- KONTEN MENU: INDIKATOR MATERI -->
                 <div id="sec-indikator" class="content-section">
                     <div class="glass-card">
                         <h2><i class="fas fa-list-check" style="color: var(--primary);"></i> Laporan Hierarki Capaian Pembelajaran</h2>
@@ -1101,6 +1102,152 @@
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+
+                <!-- KONTEN MENU BARU: JADWAL BIMBINGAN TKA -->
+                <div id="sec-jadwal-tka" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-calendar-week" style="color: var(--primary);"></i> Jadwal Penguatan Mapel TKA</h2>
+                        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 5px;">Jadwal Pelaksanaan Bimbingan Penguatan TKA untuk Kelas XII Menurut Hari dan Jam Pelajaran</p>
+                        
+                        <div style="overflow-x: auto; margin-top: 20px;">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Kelas</th>
+                                        <th>Senin</th>
+                                        <th>Selasa</th>
+                                        <th>Rabu</th>
+                                        <th>Kamis</th>
+                                        <th>Jumat</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>XII A1</strong></td>
+                                        <td>Jam 6,7,8,9,10: MTK</td>
+                                        <td>Bahasa Inggris</td>
+                                        <td>Jam 3,4,5: MTK</td>
+                                        <td>Jam 1,2,3: Bahasa Indonesia</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII A2</strong></td>
+                                        <td>Jam 1,2,3: Bahasa Indonesia</td>
+                                        <td>Jam 5,6,7: MTK</td>
+                                        <td>Jam 8,9,10: Bahasa Inggris</td>
+                                        <td>Jam 1,2,3: MTK</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII B1</strong></td>
+                                        <td>Jam 1,2,3,4: MTK</td>
+                                        <td>Jam 3,4,5: MTK<br>Jam 8,9,10: Bahasa Indonesia</td>
+                                        <td>Jam 3,4,5: Bahasa Inggris</td>
+                                        <td>Jam 4,5: MTK<br>Jam 8,9,10: MTK</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII B2</strong></td>
+                                        <td>Jam 7,8,9,10: MTK</td>
+                                        <td>-</td>
+                                        <td>Jam 6,7,8: Bahasa Indonesia<br>Jam 9,10: MTK</td>
+                                        <td>Jam 3,4,5: Bahasa Inggris<br>Jam 8,9,10: MTK</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII C1</strong></td>
+                                        <td>Jam 2,3: Bahasa Inggris<br>Jam 4,5,6: Bahasa Inggris</td>
+                                        <td>Jam 1,2,3: Bahasa Inggris<br>Jam 6,7,8: Bahasa Indonesia</td>
+                                        <td>Jam 8,9,10: MTK</td>
+                                        <td>Jam 7,8,9,10: MTK</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII C2</strong></td>
+                                        <td>Jam 2,3: Bahasa Inggris<br>Jam 4,5,6: MTK</td>
+                                        <td>Jam 1,2,3: MTK<br>Jam 6,7,8: Bahasa Inggris</td>
+                                        <td>Jam 1,2: MTK</td>
+                                        <td>Jam 5,6,7: Bahasa Inggris</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII C3</strong></td>
+                                        <td>Jam 4,5: MTK<br>Jam 6,7,8,9,10: MTK</td>
+                                        <td>Jam 6,7,8,9,10: MTK</td>
+                                        <td>Jam 6,7,8,9,10: Bahasa Inggris</td>
+                                        <td>Jam 5,6,7: Bahasa Indonesia<br>Jam 8,9,10: MTK</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII D</strong></td>
+                                        <td>Jam 2,3: MTK</td>
+                                        <td>Jam 1,2,3: Bahasa Inggris<br>Jam 8,9,10: MTK</td>
+                                        <td>Jam 6,7,8,9,10: MTK</td>
+                                        <td>Jam 6,7,8: Bahasa Indonesia</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII E</strong></td>
+                                        <td>-</td>
+                                        <td>Jam 8,9,10: MTK</td>
+                                        <td>Jam 3,4,5: Bahasa Inggris</td>
+                                        <td>Jam 1,2,3: MTK</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII F</strong></td>
+                                        <td>-</td>
+                                        <td>Jam 5,6,7: MTK<br>Jam 8,9,10: Bahasa Inggris</td>
+                                        <td>Jam 6,7,8: Bahasa Indonesia</td>
+                                        <td>Jam 3,4,5: Bahasa Indonesia</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII G1</strong></td>
+                                        <td>Jam 8,9,10: Bahasa Indonesia</td>
+                                        <td>Jam 3,4,5,6: Bahasa Inggris</td>
+                                        <td>Jam 1,2: Bahasa Indonesia<br>Jam 3,4,5: Bahasa Inggris</td>
+                                        <td>Jam 5,6,7,8: MTK</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII G2</strong></td>
+                                        <td>Jam 6,7,8: Bahasa Indonesia</td>
+                                        <td>Jam 1,2,3: Bahasa Inggris</td>
+                                        <td>Jam 8,9,10: Bahasa Indonesia</td>
+                                        <td>Jam 1,2,3,4: MTK</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>XII H</strong></td>
+                                        <td>Jam 4,5,6: Bahasa Indonesia<br>Jam 9,10: Bahasa Inggris</td>
+                                        <td>Jam 3,4: Bahasa Indonesia<br>Jam 5,6,7: Bahasa Inggris</td>
+                                        <td>Jam 3,4,5: Bahasa Inggris</td>
+                                        <td>Jam 8,9,10: Bahasa Indonesia</td>
+                                        <td>Jam 1,2,3,4,5: ASESMEN</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="glass-card">
+                        <h2><i class="fas fa-exclamation-circle" style="color: var(--accent-yellow);"></i> Keterangan & Ketentuan Pelaksanaan Bimbingan</h2>
+                        <ul class="info-list" style="margin-top: 15px;">
+                            <li><strong>1. Pengaturan Jam Mengajar Guru:</strong> Setiap MGMP mengatur secara teknis guru yang akan memberikan bimbingan untuk mengantisipasi jam KBM kelas X dan XI jika ada jam mengajar yang sama dengan jadwal bimbingan.</li>
+                            <li><strong>2. Penugasan Kelas X dan XI:</strong> Jika ada jadwal yang bertabrakan dengan kelas X dan XI, bisa diberikan tugas/LKPD untuk kelas X dan XI.</li>
+                            <li><strong>3. Ketentuan Asesmen Hari Jumat:</strong> Untuk hari Jumat dilakukan asesmen dengan pengaturan waktu:
+                                <ul style="padding-left: 20px; margin-top: 5px; list-style-type: disc;">
+                                    <li><strong>07.15 – 08.15 WITA:</strong> Matematika</li>
+                                    <li><strong>08.45 – 09.45 WITA:</strong> Bahasa Indonesia</li>
+                                    <li><strong>09.45 – 10.45 WITA:</strong> Bahasa Inggris</li>
+                                </ul>
+                                <span style="font-size: 0.85rem; color: var(--text-muted); display: inline-block; margin-top: 4px;">* Teknis yang mengawas selama asesmen diatur oleh 3 MGMP.</span>
+                            </li>
+                            <li><strong>4. Media Asesmen & Analisis Progres:</strong> Asesmen bisa menggunakan Google Form atau aplikasi lainnya yang bisa dengan mudah dipakai oleh MGMP untuk melakukan analisis progres belajar siswa.</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -1513,6 +1660,7 @@
                 'ringkasan': 'Ringkasan Hasil',
                 'komparasi': 'Komparasi Nilai',
                 'indikator': 'Indikator Materi',
+                'jadwal-tka': 'Jadwal Bimbingan TKA',
                 'matematika': 'Analisis Matematika',
                 'indonesia': 'Analisis Bahasa Indonesia',
                 'inggris': 'Analisis Bahasa Inggris',
