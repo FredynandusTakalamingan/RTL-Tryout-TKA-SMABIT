@@ -551,6 +551,28 @@
             margin-bottom: 8px;
         }
 
+        /* Style Tambahan untuk Link Soal TKA */
+        .btn-drive-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: var(--primary);
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .btn-drive-link:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
         /* Responsive */
         @media (max-width: 992px) {
             .hero-container { grid-template-columns: 1fr; text-align: center; }
@@ -687,6 +709,7 @@
                     <li class="menu-item" onclick="nav('komparasi')"><i class="fas fa-table"></i><span class="menu-title">Komparasi Nilai</span></li>
                     <li class="menu-item" onclick="nav('indikator')"><i class="fas fa-list-check"></i><span class="menu-title">Indikator Materi</span></li>
                     <li class="menu-item" onclick="nav('jadwal-tka')"><i class="fas fa-calendar-week"></i><span class="menu-title">Jadwal Bimbingan TKA</span></li>
+                    <li class="menu-item" onclick="nav('soal-tka')"><i class="fas fa-file-pdf"></i><span class="menu-title">SOAL LATIHAN TKA</span></li>
                     <li class="menu-item" onclick="nav('matematika')"><i class="fas fa-calculator"></i><span class="menu-title">Analisis Matematika</span></li>
                     <li class="menu-item" onclick="nav('indonesia')"><i class="fas fa-language"></i><span class="menu-title">Bahasa Indonesia</span></li>
                     <li class="menu-item" onclick="nav('inggris')"><i class="fas fa-globe"></i><span class="menu-title">Bahasa Inggris</span></li>
@@ -1341,7 +1364,6 @@
                         </div>
                     </div>
 
-
                     <!-- TAMBAHAN DATA REFERENSI: RENCANA MATERI BIMBINGAN TKA -->
                     <div class="glass-card">
                         <h2><i class="fas fa-book-reader" style="color: var(--accent-green);"></i> Rencana Materi & Asesmen Bimbingan TKA</h2>
@@ -1390,7 +1412,7 @@
                                     <tr>
                                         <td><strong>Minggu 2<br>September 2026</strong></td>
                                         <td><span class="badge badge-danger">Capaian Rendah</span></td>
-                                        <td style="text-align:left;">Luas permukaan bangun ruang sisi lengkung; interpretasi penyajian data diagram garis.</td>
+                                        <td style="text-align:left;">Luas permukaan bangun ruang sisi lengkung; interpretasi penyajikan data diagram garis.</td>
                                         <td style="text-align:left;">Tujuan penulisan procedure text; bagian procedure text yang dapat diaplikasikan dalam kehidupan nyata.</td>
                                         <td style="text-align:left;">Fenomena/peristiwa utama berdasarkan kosakata; informasi peristiwa penting atau konflik antartokoh.</td>
                                         <td style="text-align:left;">Evaluasi tertulis menghitung luas permukaan bangun lengkung, menganalisis diagram garis, serta membaca teks prosedur.</td>
@@ -1470,6 +1492,154 @@
                     </div>
                 </div>
 
+                <!-- KONTEN MENU BARU: SOAL LATIHAN TKA -->
+                <div id="sec-soal-tka" class="content-section">
+                    <div class="glass-card">
+                        <h2><i class="fas fa-file-pdf" style="color: var(--primary);"></i> SOAL LATIHAN TKA SMA/MA/SMK TAHUN 2025</h2>
+                        <p style="color: var(--text-muted); font-size: 0.88rem; margin-top: 5px;">Akses berkas latihan soal Tes Kemampuan Akademik (TKA) Mata Pelajaran Wajib dan Pilihan via Google Drive.</p>
+                    </div>
+
+                    <div class="glass-card">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th style="width: 8%;">No</th>
+                                    <th style="width: 62%;">Nama Dokumen Soal</th>
+                                    <th style="width: 30%; text-align: center;">Akses Berkas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><strong>Soal TKA Bahasa Indonesia Wajib</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/11jG1A9WE8iU4BXThqrXTECL_Pa4XRvkL/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><strong>Soal TKA Bahasa Indonesia Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1CziaZLn7_NzRyvjaWw7u1UhJIUj885hL/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><strong>Soal TKA Bahasa Inggris Wajib</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1UizwTZWXp9EX6IKOdUQZDeKiy_y1q2CR/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><strong>Soal TKA Bahasa Inggris Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1jun2TvbY9BMjx1X4TH_ZnyH2b8F1nR0I/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><strong>Soal TKA Matematika Wajib</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1ulrVfOUNJqE4oFV63tu-GOgkesSZx_bL/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td><strong>Soal TKA Matematika Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1vuoprVI88kZppNW2zrW_i5kH6cRoSNge/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td><strong>Soal TKA Biologi Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/12LPPseLSnjNwZmKIkfyRejD3UuFUphIm/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td><strong>Soal TKA Ekonomi Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1WRHxJu2IvQDwNN-6M9qqFe9Lbf87cb4t/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td><strong>Soal TKA Fisika Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1D0v8L-3fqVEWsC0W2barKC0wB7qms9Bi/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td><strong>Soal TKA Geografi Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1Rukc7rmPhj2UheBywc-mf7E_yR0hTFVl/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td><strong>Soal TKA Kimia Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1WBIr1jddvkh9CGoPv6xyo3Ta2tZoLAP3/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td><strong>Soal TKA PPKn Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1ns6wVWlaBcZJYMF9iWrI4oG-YQuEq_JG/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>13</td>
+                                    <td><strong>Soal TKA Sejarah Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1425CRMf0OkEVTej6mb2LZpOjei6OBZcu/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>14</td>
+                                    <td><strong>Soal TKA Sosiologi Pilihan</strong></td>
+                                    <td style="text-align: center;">
+                                        <a href="https://drive.google.com/file/d/1teMfqJ0GP6zqE4-Y1sgcEpknW4lMRgy4/view" target="_blank" class="btn-drive-link">
+                                            <i class="fab fa-google-drive"></i> Buka Soal
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
                 <!-- 5. ANALISIS MATEMATIKA -->
                 <div id="sec-matematika" class="content-section">
                     <div class="glass-card">
@@ -1508,259 +1678,8 @@
                             <h4>Temuan Utama:</h4>
                         </div>
                         <ul class="info-list">
-                            <li><strong>Titik Lemah Utama (Aljabar & Bilangan):</strong> Kedua materi ini memiliki rata-rata terendah (42.80 & 45.97) dan berstatus "Cukup". Padahal, Aljabar dan Bilangan adalah fondasi dasar dalam matematika.</li>
-                            <li><strong>Potensi Terbesar (Trigonometri & Data/Peluang):</strong> Trigonometri mencatatkan nilai tertinggi (60.14) dengan 245 siswa berada di kategori "Baik".</li>
-                            <li><strong>Keterbelahan Kategori Siswa:</strong> Terdapat sekitar 115 – 154 siswa di setiap materi yang berada pada kelompok nilai Cukup & Rendah (butuh perhatian ekstra).</li>
+                            <li><strong>Titik Lemah Utama (Aljabar & Bilangan):</strong> Kedua materi ini memiliki rata-rata terendah. Konsep dasar aljabar dan manipulasi bilangan perlu diperkuat kembali.</li>
                         </ul>
-
-                        <div class="section-title-box">
-                            <h4>2. Rencana Action Plan Sekolah (Agustus – Oktober)</h4>
-                        </div>
-                        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:10px;">
-                            Skala Prioritas: <strong>Prioritas Utama:</strong> Aljabar & Bilangan | <strong>Prioritas Menengah:</strong> Data & Peluang, Trigonometri, Geometri
-                        </p>
-
-                        <div class="glass-card" style="background: rgba(255,255,255,0.02);">
-                            <h5 style="color:var(--primary);">Langkah 1: Tindakan Administrasi & Sosialisasi (Minggu I Agustus)</h5>
-                            <ul class="info-list">
-                                <li><strong>Keikutsertaan 100%:</strong> Memanggil dan memfasilitasi Try Out Susulan bagi 58 siswa yang belum ikut.</li>
-                                <li><strong>Pengelompokan Siswa (Clustering):</strong>
-                                    <br>- <em>Kelompok Klinik/Remidial:</em> Siswa kategori "Rendah" dan "Cukup" (fokus Aljabar & Bilangan).
-                                    <br>- <em>Kelompok Pengayaan/Penguatan:</em> Siswa kategori "Sedang" dan "Baik" (fokus HOTS & manajemen waktu).
-                                </li>
-                            </ul>
-
-                            <h5 style="color:var(--primary); margin-top:15px;">Langkah 2: Strategi Pembelajaran & Pengajaran di Kelas (Agustus – September)</h5>
-                            <ul class="info-list">
-                                <li><strong>A. Intervensi Utama (Aljabar & Bilangan):</strong> Remedial Matrikulasi (2 Minggu Pertama) 15–30 menit di awal KBM matematika khusus mengulang paktorisasi, persamaan, fungsi, eksponen, bentuk akar, & pola bilangan. Disusun pula Modul Lembar Kerja Terfokus.</li>
-                                <li><strong>B. Intervensi Menengah (Data, Peluang, Geometri, Trigonometri):</strong> Metode Drill & Pembahasan Soal TKA serta Tutor Sebaya (Peer Tutoring) memanfaatkan 245 siswa berprestasi Baik di Trigonometri.</li>
-                            </ul>
-
-                            <h5 style="color:var(--primary); margin-top:15px;">Langkah 3: Program Penguatan Tambahan (September – Oktober)</h5>
-                            <ul class="info-list">
-                                <li><strong>Bimbel Intensif Sore:</strong> Diselenggarakan 2x seminggu setelah jam sekolah.</li>
-                                <li><strong>Try Out Berkala:</strong> Akhir Agustus (Evaluasi Aljabar/Bilangan) & Akhir September (Simulasi TKA).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. ANALISIS BAHASA INDONESIA -->
-                <div id="sec-indonesia" class="content-section">
-                    <div class="glass-card">
-                        <h2><i class="fas fa-language" style="color: var(--accent-green);"></i> Analisis Hasil Try Out 1 TKA: Bahasa Indonesia</h2>
-                        
-                        <div class="section-title-box">
-                            <h4>A. Tingkat Partisipasi</h4>
-                        </div>
-                        <p style="font-size:0.9rem;">• Siswa Terdaftar: 492 siswa | Siswa Ikut: 452 siswa | Persentase: 91.87%</p>
-                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:5px;">
-                            <strong>Evaluasi:</strong> Partisipasi lebih tinggi dibanding Matematika (88.21%). Namun, masih ada 40 siswa (8.13%) yang belum mengikuti tes.
-                        </p>
-
-                        <div class="section-title-box">
-                            <h4>B. Capaian Rata-Rata Nilai & Peta Kompetensi (Rata-rata Sekolah: 61.26 - Cukup Baik)</h4>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Competency / Domain</th>
-                                    <th>Nilai Rata-rata</th>
-                                    <th>Keterangan</th>
-                                    <th>Sebaran Siswa (Baik / Sedang / Cukup / Rendah)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Pemahaman Tekstual</td><td>83.41</td><td><span class="badge badge-success">Baik</span></td><td>329 / 82 / 31 / 10</td></tr>
-                                <tr><td>Pemahaman Inferensial</td><td>57.55</td><td><span class="badge badge-warning">Sedang</span></td><td>148 / 159 / 95 / 50</td></tr>
-                                <tr><td>Evaluasi dan Apresiasi</td><td>52.58</td><td><span class="badge badge-warning">Sedang</span></td><td>34 / 255 / 104 / 59</td></tr>
-                            </tbody>
-                        </table>
-
-                        <div class="section-title-box">
-                            <h4>Temuan Utama:</h4>
-                        </div>
-                        <ul class="info-list">
-                            <li><strong>Sangat Kuat di Pemahaman Tekstual:</strong> Mayoritas siswa (329 siswa / 72.8%) berada di kategori Baik (mahir menemukan informasi tersurat & fakta).</li>
-                            <li><strong>Lemah di Berpikir Tingkat Tinggi (HOTS):</strong>
-                                <br>- <em>Pemahaman Inferensial (57.55):</em> 145 siswa di kategori Cukup & Rendah (kesulitan membaca informasi tersirat/kesimpulan).
-                                <br>- <em>Evaluasi dan Apresiasi (52.58):</em> Hanya 34 siswa bernilai "Baik". 255 siswa menumpuk di "Sedang" (butuh penguatan menilai akurasi, bias argumen, & refleksi nilai).
-                            </li>
-                        </ul>
-
-                        <div class="section-title-box">
-                            <h4>2. Rencana Action Plan Sekolah (Agustus – Oktober)</h4>
-                        </div>
-
-                        <div class="glass-card" style="background: rgba(255,255,255,0.02);">
-                            <h5 style="color:var(--accent-green);">Langkah 1: Tindakan Administrasi (Minggu I Agustus)</h5>
-                            <ul class="info-list">
-                                <li>Pendataan 40 siswa susulan & memetakan target intervensi khusus untuk 109 siswa bernilai Cukup/Rendah di domain HOTS.</li>
-                            </ul>
-
-                            <h5 style="color:var(--accent-green); margin-top:15px;">Langkah 2: Strategi Pembelajaran di Kelas (Agustus – September)</h5>
-                            <ul class="info-list">
-                                <li><strong>A. Pemahaman Tekstual:</strong> Melatih skimming/scanning untuk menghemat waktu.</li>
-                                <li><strong>B. Pemahaman Inferensial:</strong> Latihan soal kesimpulan/implikasi tersirat & teknik Annotating Text (kata kunci hubungan logis).</li>
-                                <li><strong>C. Evaluasi & Apresiasi:</strong> Pelatihan menganalisis argumen teks (Fakta vs Opini, pandangan penulis, bias argumen) dan bedah soal model TKA.</li>
-                            </ul>
-
-                            <h5 style="color:var(--accent-green); margin-top:15px;">Langkah 3: Program Penguatan Tambahan (September – Oktober)</h5>
-                            <ul class="info-list">
-                                <li><strong>Gerakan Literasi HOTS Harian:</strong> 1 artikel berita/opini pendek sebelum KBM + 2 pertanyaan evaluatif (5 menit).</li>
-                                <li><strong>Try Out 2 & Simulasi TKA:</strong> Target mengangkat nilai Evaluasi & Apresiasi dari 52.58 ke > 65.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 7. ANALISIS BAHASA INGGRIS -->
-                <div id="sec-inggris" class="content-section">
-                    <div class="glass-card">
-                        <h2><i class="fas fa-globe" style="color: var(--primary-purple);"></i> Analisis Hasil Try Out 1 TKA: Bahasa Inggris</h2>
-                        
-                        <div class="section-title-box">
-                            <h4>A. Tingkat Partisipasi</h4>
-                        </div>
-                        <p style="font-size:0.9rem;">• Siswa Terdaftar: 492 siswa | Siswa Ikut: 451 siswa | Persentase: 91.67%</p>
-                        <p style="font-size:0.85rem; color:var(--text-muted); margin-top:5px;">
-                            <strong>Evaluasi:</strong> Partisipasi sangat stabil (~91%). Terdapat 41 siswa (8.33%) yang belum mengikuti tes.
-                        </p>
-
-                        <div class="section-title-box">
-                            <h4>B. Capaian Rata-Rata Nilai & Peta Kompetensi (Rata-rata Sekolah: 65.33 - Sedang / Cukup Baik)</h4>
-                        </div>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Competency / Domain</th>
-                                    <th>Nilai Rata-rata</th>
-                                    <th>Keterangan</th>
-                                    <th>Sebaran Siswa (Baik / Sedang / Cukup / Rendah)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Evaluasi dan Apresiasi</td><td>69.73</td><td><span class="badge badge-success">Sedang</span></td><td>245 / 105 / 64 / 37</td></tr>
-                                <tr><td>Pemahaman Tekstual</td><td>64.17</td><td><span class="badge badge-success">Sedang</span></td><td>185 / 140 / 71 / 55</td></tr>
-                                <tr><td>Pemahaman Inferensial</td><td>62.08</td><td><span class="badge badge-success">Sedang</span></td><td>190 / 125 / 67 / 69</td></tr>
-                            </tbody>
-                        </table>
-
-                        <div class="section-title-box">
-                            <h4>Temuan Utama:</h4>
-                        </div>
-                        <ul class="info-list">
-                            <li><strong>Performa Merata:</strong> Seluruh domain stabil berada di kisaran 62–69 (Kategori "Sedang").</li>
-                            <li><strong>Kejutan pada Evaluasi & Apresiasi (69.73):</strong> Nilai tertinggi di Bahasa Inggris, 245 siswa (54.3%) berada di kategori Baik (muni menilai author's tone, purpose, & relevansi).</li>
-                            <li><strong>Tantangan Vocab & Struktur Teks:</strong> 126 siswa di Cukup/Rendah pada Pemahaman Tekstual & 136 siswa di Pemahaman Inferensial (kendala kosakata & kesimpulan tersirat).</li>
-                        </ul>
-
-                        <div class="section-title-box">
-                            <h4>2. Rencana Action Plan Sekolah (Agustus – Oktober)</h4>
-                        </div>
-
-                        <div class="glass-card" style="background: rgba(255,255,255,0.02);">
-                            <h5 style="color:var(--primary-purple);">Langkah 1: Tindakan Administrasi (Minggu I Agustus)</h5>
-                            <ul class="info-list">
-                                <li>Fasilitasi 41 siswa susulan & pengelompokan target (Vocabulary & Basic Reading vs Advanced Literacy).</li>
-                            </ul>
-
-                            <h5 style="color:var(--primary-purple); margin-top:15px;">Langkah 2: Strategi Pembelajaran di Kelas (Agustus – September)</h5>
-                            <ul class="info-list">
-                                <li><strong>A. Penguatan Tekstual & Inferensial:</strong> Program Daily Vocabulary Booster (5–10 academic vocab/synonyms per hari), teknik Context Clues & Scanning, serta drill soal Main Idea & Inference.</li>
-                                <li><strong>B. Pendampingan Evaluasi & Apresiasi:</strong> Bedah teks analitis (Tone & Purpose) & membaca teks multiparagraf (Science, Tech, Social Issues).</li>
-                            </ul>
-
-                            <h5 style="color:var(--primary-purple); margin-top:15px;">Langkah 3: Program Penguatan Tambahan (September – Oktober)</h5>
-                            <ul class="info-list">
-                                <li><strong>English Reading Habit:</strong> 15 menit/hari bacaan pendek TKA dengan waktu terukur.</li>
-                                <li><strong>Time Management & TO 2:</strong> Target menggeser kelompok "Sedang" (105–140 siswa) naik ke "Baik".</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 8. PERBANDINGAN MAPEL -->
-                <div id="sec-perbandingan" class="content-section">
-                    <div class="glass-card">
-                        <h2><i class="fas fa-balance-scale"></i> Perbandingan Lintas Mata Pelajaran</h2>
-                        <p style="color:var(--text-muted); font-size:0.88rem; margin-top:5px;">
-                            Perbandingan rata-rata nilai dan persentase keikutsertaan antara Matematika, Bahasa Indonesia, dan Bahasa Inggris.
-                        </p>
-                        <canvas id="chartPerbandingan" style="max-height: 320px; margin-top: 20px;"></canvas>
-                    </div>
-                </div>
-
-                <!-- 9. TIMELINE RTL -->
-                <div id="sec-timeline" class="content-section">
-                    <div class="glass-card">
-                        <h2><i class="fas fa-calendar-alt"></i> Combined Master Timeline RTL (Agustus – Oktober)</h2>
-                        <div class="timeline">
-                            <div class="timeline-item">
-                                <div style="font-weight:700; color:var(--primary);">[M1-M2 Agustus] ──> Fase Susulan & Matrikulasi</div>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
-                                    • Try Out Susulan bagi siswa yang belum ikut (MTK: 58, BIN: 40, BIG: 41).<br>
-                                    • Clustering kelompok remedial/pengayaan.<br>
-                                    • Pembentukan Bank Soal HOTS BIN & English Vocabulary List.<br>
-                                    • Remedial Matrikulasi Aljabar/Bilangan.
-                                </p>
-                            </div>
-                            <div class="timeline-item">
-                                <div style="font-weight:700; color:var(--primary-purple);">[M3 Aug - M2 Sep] ──> Fase Intervensi Intensif</div>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
-                                    • Bimbel Intensif Sore 2x seminggu + Tutor Sebaya (Trigonometri & Reading).<br>
-                                    • Drill Soal Inferensial & Evaluasi Teks Bahasa Indonesia.<br>
-                                    • Daily Vocabulary Booster & English Reading Habit (15 min/hari).<br>
-                                    • Gerakan Literasi HOTS Harian.
-                                </p>
-                            </div>
-                            <div class="timeline-item">
-                                <div style="font-weight:700; color:var(--accent-yellow);">[M3 Sep] ──> Evaluasi Mid-Term (Try Out 2)</div>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
-                                    • Pelaksanaan Try Out 2 untuk seluruh mata pelajaran TKA.<br>
-                                    • Evaluasi kenaikan kategori siswa (Target: pengangkatan kategori Cukup/Rendah ke Sedang/Baik).
-                                </p>
-                            </div>
-                            <div class="timeline-item">
-                                <div style="font-weight:700; color:var(--accent-rose);">[M4 Sep - M1 Okt] ──> Simulasi Final & Formatting Mental</div>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
-                                    • Simulasi Final TKA dengan kondisi, durasi, dan sistem persis tes sesungguhnya.<br>
-                                    • Pembekalan strategi manajemen waktu pengerjaan & ketahanan mental.
-                                </p>
-                            </div>
-                            <div class="timeline-item">
-                                <div style="font-weight:700; color:var(--accent-green);">[Oktober] ──> Pelaksanaan TKA Utama</div>
-                                <p style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;">
-                                    • Pelaksanaan Tes Kemampuan Akademik (TKA) Utama SMA Negeri 2 Bitung.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 10. KESIMPULAN -->
-                <div id="sec-kesimpulan" class="content-section">
-                    <div class="glass-card">
-                        <h2><i class="fas fa-check-circle" style="color:var(--accent-green);"></i> Kesimpulan Rencana Tindak Lanjut</h2>
-                        <p style="margin-top:15px; line-height:1.6;">
-                            Hasil Try Out 1 TKA memberikan gambaran yang jelas mengenai kekuatan dan area perbaikan siswa SMAN 2 Bitung. Melalui implementasi RTL terstruktur yang terfokus pada remedial matrikulasi, peningkatan literasi HOTS, daily vocabulary booster, serta asesmen mingguan teratur, diharapkan seluruh peserta didik dapat mencapai potensi terbaiknya pada Tes Kemampuan Akademik (TKA) mendatang.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- 11. TENTANG PENYUSUN -->
-                <div id="sec-penyusun" class="content-section">
-                    <div class="glass-card" style="text-align: center; padding: 40px 20px;">
-                        <div style="width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary), var(--primary-purple)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px auto; font-size: 2.5rem; color: #fff; box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h2 style="font-size: 1.5rem;">Fredynandus Takalamingan, S.Si</h2>
-                        <p style="color: var(--primary); font-weight: 600; margin-top: 5px;">Wakil Kepala Sekolah Bidang Kurikulum</p>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 2px;">SMA Negeri 2 Bitung</p>
-                        <hr style="border: 0; border-top: 1px solid var(--panel-border); margin: 25px auto; width: 60%;">
-                        <p style="max-width: 600px; margin: 0 auto; font-size: 0.88rem; color: var(--text-muted); line-height: 1.6;">
-                            Bertanggung jawab dalam penyusunan, pengawasan, dan evaluasi program akademik serta Rencana Tindak Lanjut (RTL) Try Out Tes Kemampuan Akademik (TKA) di SMAN 2 Bitung.
-                        </p>
                     </div>
                 </div>
 
@@ -1768,80 +1687,22 @@
         </div>
     </section>
 
-    <!-- Scripts Javascript -->
+    <!-- Script JavaScript Bawaan -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Init AOS Library
         AOS.init();
 
-        // Theme Toggle Logic
-        function toggleTheme() {
-            const htmlTag = document.documentElement;
-            const currentTheme = htmlTag.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            htmlTag.setAttribute('data-theme', newTheme);
-            
-            const iconLanding = document.getElementById('theme-icon-landing');
-            const iconDash = document.getElementById('theme-icon-dashboard');
-            
-            if (newTheme === 'light') {
-                if(iconLanding) iconLanding.className = 'fas fa-sun';
-                if(iconDash) iconDash.className = 'fas fa-sun';
-            } else {
-                if(iconLanding) iconLanding.className = 'fas fa-moon';
-                if(iconDash) iconDash.className = 'fas fa-moon';
-            }
-        }
-
-        // Navigation Switcher
         function enterDashboard() {
             document.getElementById('landing-page').style.display = 'none';
             document.getElementById('dashboard-page').style.display = 'block';
-            window.scrollTo(0, 0);
-            initCharts();
+            initChart();
         }
 
         function exitToLanding() {
             document.getElementById('dashboard-page').style.display = 'none';
             document.getElementById('landing-page').style.display = 'flex';
-            window.scrollTo(0, 0);
         }
 
-        function nav(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-
-            const menuItems = document.querySelectorAll('.menu-item');
-            menuItems.forEach(item => item.classList.remove('active'));
-
-            const targetSection = document.getElementById('sec-' + sectionId);
-            if(targetSection) {
-                targetSection.classList.add('active');
-            }
-
-            event.currentTarget.classList.add('active');
-
-            const titleMap = {
-                'beranda': 'Beranda',
-                'pengantar': 'Pengantar',
-                'tujuan': 'Tujuan Strategis',
-                'ringkasan': 'Ringkasan Hasil',
-                'komparasi': 'Komparasi Nilai',
-                'indikator': 'Indikator Materi',
-                'jadwal-tka': 'Jadwal Bimbingan TKA',
-                'matematika': 'Analisis Matematika',
-                'indonesia': 'Analisis Bahasa Indonesia',
-                'inggris': 'Analisis Bahasa Inggris',
-                'perbandingan': 'Perbandingan Mapel',
-                'timeline': 'Timeline RTL',
-                'kesimpulan': 'Kesimpulan',
-                'penyusun': 'Tentang Penyusun'
-            };
-            document.getElementById('breadcrumb-title').innerText = titleMap[sectionId] || 'Dashboard';
-            window.scrollTo(0, 0);
-        }
-
-        // Sidebar Collapse
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const mainContent = document.getElementById('mainContent');
@@ -1849,14 +1710,31 @@
             mainContent.classList.toggle('expanded');
         }
 
-        // Sidebar Search Filter
+        function nav(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(sec => sec.classList.remove('active'));
+
+            const targetSection = document.getElementById('sec-' + sectionId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => item.classList.remove('active'));
+            
+            event.currentTarget.classList.add('active');
+
+            const titleText = event.currentTarget.querySelector('.menu-title').innerText;
+            document.getElementById('breadcrumb-title').innerText = titleText;
+        }
+
         function filterMenu() {
             const query = document.getElementById('menuSearch').value.toLowerCase();
             const items = document.querySelectorAll('#menuList .menu-item');
 
             items.forEach(item => {
-                const text = item.innerText.toLowerCase();
-                if(text.includes(query)) {
+                const title = item.querySelector('.menu-title').innerText.toLowerCase();
+                if (title.includes(query)) {
                     item.style.display = 'flex';
                 } else {
                     item.style.display = 'none';
@@ -1864,38 +1742,35 @@
             });
         }
 
-        // Stats Counter Animation
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                const inc = target / 50;
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
 
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(updateCount, 30);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-            updateCount();
-        });
+            const iconLanding = document.getElementById('theme-icon-landing');
+            const iconDashboard = document.getElementById('theme-icon-dashboard');
+            
+            if (newTheme === 'light') {
+                iconLanding.className = 'fas fa-sun';
+                iconDashboard.className = 'fas fa-sun';
+            } else {
+                iconLanding.className = 'fas fa-moon';
+                iconDashboard.className = 'fas fa-moon';
+            }
+        }
 
-        // Initialize Charts
-        let chartsInitialized = false;
-        function initCharts() {
-            if(chartsInitialized) return;
-            chartsInitialized = true;
-
-            // Chart Beranda
-            const ctxBeranda = document.getElementById('chartBeranda').getContext('2d');
-            new Chart(ctxBeranda, {
+        // Chart Initialization
+        let chartInstance = null;
+        function initChart() {
+            if (chartInstance) return;
+            const ctx = document.getElementById('chartBeranda').getContext('2d');
+            chartInstance = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels: ['Matematika', 'Bahasa Indonesia', 'Bahasa Inggris'],
                     datasets: [{
-                        label: 'Rata-Rata Nilai TO 1',
+                        label: 'Nilai Rata-Rata',
                         data: [50.30, 61.26, 65.33],
                         backgroundColor: [
                             'rgba(251, 191, 36, 0.7)',
@@ -1913,47 +1788,36 @@
                 },
                 options: {
                     responsive: true,
+                    plugins: {
+                        legend: { display: false }
+                    },
                     scales: {
-                        y: { beginAtZero: true, max: 100 }
-                    }
-                }
-            });
-
-            // Chart Perbandingan
-            const ctxPerbandingan = document.getElementById('chartPerbandingan').getContext('2d');
-            new Chart(ctxPerbandingan, {
-                type: 'radar',
-                data: {
-                    labels: ['Rata-rata Nilai', '% Keikutsertaan', 'Domain Terbaik', 'Tingkat Kelulusan', 'Capaian HOTS'],
-                    datasets: [
-                        {
-                            label: 'Matematika',
-                            data: [50.3, 88.2, 60.1, 55, 42.8],
-                            borderColor: '#fbbf24',
-                            backgroundColor: 'rgba(251, 191, 36, 0.2)'
-                        },
-                        {
-                            label: 'Bahasa Indonesia',
-                            data: [61.2, 91.8, 83.4, 75, 52.5],
-                            borderColor: '#34d399',
-                            backgroundColor: 'rgba(52, 211, 153, 0.2)'
-                        },
-                        {
-                            label: 'Bahasa Inggris',
-                            data: [65.3, 91.6, 69.7, 78, 62.0],
-                            borderColor: '#a855f7',
-                            backgroundColor: 'rgba(168, 85, 247, 0.2)'
+                        y: {
+                            beginAtZero: true,
+                            max: 100
                         }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        r: { beginAtZero: true, max: 100 }
                     }
                 }
             });
         }
+
+        // Counter Animation for Landing Page
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / 50;
+
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
     </script>
 </body>
 </html>
